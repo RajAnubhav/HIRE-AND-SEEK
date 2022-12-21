@@ -399,23 +399,24 @@ def login_company(request):
 def company(request):
     id=request.session.get('email')
    
-    # args = {'name': request.session.get('name'),'email':request.session.get('email')}
     def comp_info(id):
         m = sql.connect(host='localhost', user='root',passwd='', database='JobShip')
         cursor = m.cursor()
+        # q = "Select * from company where email='{}'".format(id)
         q = """select name, location, email, domain, phone, summary,type_of_company , est_year ,about ,linkedin ,language_worked_with ,collab_tools ,opsys ,plateform_worked_with,honor_or_reward ,honor_or_reward_desc from comp_profile where email='{}'""".format(id)
-        cursor.execute(q)
+
+        m1=cursor.execute(q)
+        print(m1)
         t = tuple(cursor.fetchall())
         p = list(t)
-        print(t)
+        
         pt = p[0]
-        print(p[0])
         ptp = list(pt)
-        print(ptp)  # it is a list of the data saved in database
-        # print('length of ptp is: ',len(ptp))
+        print("The value of ptp is : ", ptp)
+
         kwargs = {'name':ptp[0],'location':ptp[1],'email':ptp[2],'domain':ptp[3],'phone':ptp[4],'summary':ptp[5],'type_of_company':ptp[6],'est_year':ptp[7],'about':ptp[8],'linkedin':ptp[9],'language_worked_with':ptp[10],'collab_tools':ptp[11],'opsys':ptp[12],'plateform_worked_with':ptp[13],'honor_or_reward':ptp[14],'honor_or_reward_desc':ptp[15],'cn':'cn'}
         return kwargs
-    # get request
+        
     print('you are:', request.session.get('name'))
 
     print('your id:', request.session.get('email'))
@@ -977,19 +978,3 @@ def generate_view(request, *args, **kwargs):
     pdf= pdfConvertor('user.html', context)
 
     return HttpResponse(pdf, content_type='application/pdf')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

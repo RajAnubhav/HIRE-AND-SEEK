@@ -62,8 +62,11 @@
                 {% csrf_token %}
                  <input required type="email" name="company_email" placeholder="Registered Email"
                     class="rounded-lg db dark:border-gray-600 dark:border-2 bg-gray-200 focus:border-2 focus:border-blue-500 px-5 py-2 ">
-                 <input required type="password" name="company_password" placeholder="Password"
-                    class="rounded-lg db dark:border-gray-600 dark:border-2 bg-gray-200 focus:ring-blue-400 focus:ring-1 px-5 py-2 ">
+                    <div>
+                    <input required type="password" name="company_password" placeholder="Password" id="password"
+                        class="rounded-lg db dark:border-gray-600 dark:border-2 bg-gray-200 focus:ring-blue-400 focus:ring-1 px-5 py-2 ">
+                    <span class="show_password" onclick="show_password()"><i class="fas fa-eye " style="background-color: black;" ></i></span>
+                    </div>
                 <button type="submit"
                     class="mx-auto bg-blue-800 text-white hover:bg-blue-500 active:bg-blue-800 rounded-lg px-4 py-2">Login</button>
                 <a href="/login_company/?q=forget_password" class="text-sm text-gray-500 text-center">Forget Password</a>
@@ -149,6 +152,15 @@
 
     <!-- <button onclick="erase()">Click to erase everything</button> -->
     <script>
+        const show_password=()=>{
+            var x = document.getElementById("password");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        }
+
         init = document.getElementById('initial_page')
         forget_page = document.getElementById('forget_page')
         otp_page = document.getElementById('otp_page')
