@@ -1,0 +1,161 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Hire and Seek</title>
+  <link rel="stylesheet" href="/static/assets/input.css">
+</head>
+
+<body class="bg-[#f3f2ef] px-10 py-5 dark:bg-black duration-700">
+
+  
+  <div class="heading flex flex-row justify-around mt-6">
+    <div class="name text-2xl text-gray-700 font-bold w-1/2">
+      <div class="flex flex-row justify-start dt">
+        Hire and Seek
+      </div>
+    </div>
+    <div class="flex flex-row space-x-3 ">
+      {%if request.session.set%}
+      <span class="flex flex-col justify-center"><a href="/home" class="dt text-gray-600">Home</a></span>
+      {%endif%}
+      <button onclick="mode()"
+      class="shadow-md shadow-gray-500 dark:shadow-gray-200 rounded-lg text-white dark:text-black font-bold px-2 py-1 hover:opacity-80 duration-1000 dark:bg-[url('./image/dark.png')] bg-[url('./image/light-mode.png')] w-10 h-5 bg-no-repeat border-2 border-gray-300 mt-2 ml-2"></button>
+     
+      
+    </div>
+  </div>
+
+  <div class="content flex flex-row justify-around  ">
+    <div class="left sm:w-1/2 w-full flex flex-col ">
+      <div class="lg:text-[3rem] text-[40px] text-gray-600 mt-2 dt">
+        Matching developers
+        with great companies.
+      </div>
+
+      <div class="card flex flex-col lg:flex-row justify-center">
+        <div class="p-4 lg:w-1/2 ">
+          <div class="h-full db dark:border-none border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+            <img class="lg:h-48 md:h-36 w-full object-cover object-top" src="/static/assets/Daco_1730460.a4e4242f.png" alt="blog">
+            <div class="p-6">
+              <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">CATEGORY</h2>
+              <h1 class="title-font text-lg font-medium text-gray-900 mb-3 dt">For Companies</h1>
+              <p class="leading-relaxed mb-3 dark:text-gray-500">We are the market-leading technical interview platform
+                to identify and hire developers wherever they are.
+
+              </p>
+              <div class="flex items-center flex-wrap">
+                <!-- <a class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0 ">Learn More
+                                <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                  <path d="M5 12h14"></path>
+                                  <path d="M12 5l7 7-7 7"></path>
+                                </svg>
+                              </a> -->
+                <div class="login flex flex-row space-x-2 justify-end">
+                  <button type="submit" onclick="window.location='/login_company/'"
+                    class="mx-auto border-2 text-blue-800 border-blue-800 hover:text-white hover:bg-blue-500 active:bg-blue-800 rounded-lg px-4 py-2">Login</button>
+                  <button type="submit" onclick="window.location='/signup_company/'"
+                    class="mx-auto border-2 text-blue-800 border-blue-800 hover:text-white hover:bg-blue-500 active:bg-blue-800 rounded-lg px-4 py-2">SignUp</button>
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="p-4 lg:w-1/2">
+          <div class="h-full db dark:border-none border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+            <img class="lg:h-48 md:h-36 w-full object-cover object-top" src="/static/assets/students.df130367.png" alt="blog">
+            <div class="p-6">
+              <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">CATEGORY</h2>
+              <h1 class="title-font text-lg font-medium text-gray-900 mb-3 dt">For Students</h1>
+              <p class="leading-relaxed mb-3 dark:text-gray-500">Join over millions of developers, your coding skills
+                will get you your Dream Job, prepare for Interviews and get hired.</p>
+              <div class="flex items-center flex-wrap">
+                <!-- <a class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">Learn More
+                                <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                  <path d="M5 12h14"></path>
+                                  <path d="M12 5l7 7-7 7"></path>
+                                </svg>
+                              </a> -->
+                <div class="login flex flex-row space-x-2 justify-end">
+                  <button type="submit" onclick="window.location='/login/'"
+                    class="mx-auto border-2 text-blue-800 border-blue-800 hover:text-white hover:bg-blue-500 active:bg-blue-800 rounded-lg px-4 py-2">Login</button>
+                  <button type="submit" onclick="window.location='/signup/'"
+                    class="mx-auto border-2 text-blue-800 border-blue-800 hover:text-white hover:bg-blue-500 active:bg-blue-800 rounded-lg px-4 py-2">SignUp</button>
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="right w-1/2 hidden lg:block">
+      <div class="flex flex-col justify-end ">
+        <img src="/static/assets/job-removebg-preview.f120f4ea.png" alt="" srcset="" class=" mt-32 ">
+      </div>
+    </div>
+  </div>
+  <div class="flex flex-row justify-center mx-auto text-sm dark:text-gray-500 relative bottom-0 mt-10">
+    <span>Copyright© Hire and Seek 2021-2022</span>
+  </div>
+
+  <script>
+     if(localStorage.theme==null){
+                localStorage.theme = 'light'
+              }
+    
+    mode = () => {
+            // let theme=localStorage.theme
+
+            document.documentElement.classList.toggle('dark')
+            if( localStorage.theme == 'light'){
+                
+                localStorage.theme = 'dark'
+
+            }
+                
+            else if(localStorage.theme == 'dark' ){
+
+                localStorage.theme = 'light'
+
+            }
+        hhh()
+            
+        
+        }
+        // this function is for setting the dark mode according to theme saved in the local storage
+        // we can manually change the mode saved in localsta
+        function hhh(){
+            if (localStorage.theme === 'dark') {
+        document.documentElement.classList.add('dark')
+        } else {
+        document.documentElement.classList.remove('dark')
+        } 
+        }
+
+        hhh();
+        dp = document.getElementById('dp');
+dropdown=()=> { 
+    // alert("dropdown is working")
+    // dp.classList.toggle('-translate-x-[200.5rem]')
+    dp.classList.toggle('translate-x-[65.5rem]')
+    dp.classList.toggle('hidden')
+    // dp.classList.toggle('hidden')
+
+
+}
+
+  </script>
+</body>
+
+</html>

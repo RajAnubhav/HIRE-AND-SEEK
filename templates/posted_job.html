@@ -1,0 +1,444 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
+        integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+    <link rel="stylesheet" href="/static/assets/index.9467d6ab.css">
+    <title>Hire and Seek</title>
+    <style>
+        /* Dropdown Button */
+
+
+        /* The container <div> - needed to position the dropdown content */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Dropdown Content (Hidden by Default) */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        /* Links inside the dropdown */
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        /* Change color of dropdown links on hover */
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        /* Show the dropdown menu on hover */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+
+        /* Change the background color of the dropdown button when the dropdown content is shown */
+        /* .dropdown:hover .dropbtn {background-color: #3e8e41;} */
+        #jobModal::-webkit-scrollbar {
+    display: none;
+}
+    </style>
+</head>
+
+<body class="bg-[#f3f2ef] dark:bg-black duration-700 dt ">
+    
+    <nav>
+        <ul class="flex flex-row lg:space-x-48 justify-center mb-2 bg-white border-b-2 border-gray-300 py-3 w-full db dt">
+    
+            <div class="2 flex flex-row space-x-3 justify-center text-center">
+                <span class="logo text-blue-800 dt ">
+                    {% comment %} <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="fill-current w-7 h-7"> {% endcomment %}
+                        <!--! Font Awesome Pro 6.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                        {% comment %} <path
+                            d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z" />
+                    </svg> {% endcomment %}
+                    <img src="/static/image/linkedin_logo.png" alt="logo"
+                style="margin-right: 5px;height: 30px;width: 45px;"onclick="window.location='/'" class="cursor-pointer">
+                </span>
+    
+                <form action="/" method="post" class="search">
+                    <input type="text" placeholder="Search"
+                        class="px-3 py-1 focus:border-[1px] focus:border-blue-300 w-56 db pl">
+                    <button type="submit"></button>
+                </form>
+    
+            </div>
+            <!-- menu-icon -->
+            
+                <div class="menu-icon dark:text-blue-300 lg:hidden hover:text-fuchsia-600 active:text-fuchsia-900 rounded-full w-11 h-11 flex flex-row justify-center" onclick="document.getElementById('phone_menu').classList.toggle('-translate-x-[30rem]')">
+                  <div class="flex flex-col justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-7 h-7 fill-current"><!--! Font Awesome Pro 6.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+                  </div>
+                </div>
+            
+    
+            <div class="1 hidden lg:flex flex-row space-x-6 justify-center">
+                <li class="item1 cursor-pointer select-none"><a href="/home"> Home </a> </li>
+                {% if request.session.iscompany %}
+            <li class="item2 cursor-pointer select-none"><a href="/posted_job/">Posted Jobs </a> </li>
+            {% else %}
+            <li class="item2 cursor-pointer select-none"><a href="/pinned_job/">Pinned Jobs </a> </li>
+            {%endif%}
+                {% comment %} <li class="item3 cursor-pointer select-none"><a href="#"> My Network </a> </li> {% endcomment %}
+                <!-- <li class="item3 cursor-pointer select-none" id="dropdown" onclick="dropdown()">Dropdown</li>
+                 -->
+                <div class="dropdown">
+                    <button class="dropbtn">Dropdown</button>
+    
+                    <ul
+                        class="dropdown-content space-y-3 bg-white border-[1px] border-gray-400 rounded-lg db ">
+                        {% if request.session.iscompany%}
+                        <li><a class="dt dark:hover:text-gray-700" href="/company/">Your Profile</a></li>
+                        {%else%}
+                        <li><a class="dt dark:hover:text-gray-700" href="/user/">Your Profile</a></li>
+                        {%endif%}
+                        <li><a class="dt dark:hover:text-gray-700" href="/user/">Your Jobs</a></li>
+                        <li><a class="dt dark:hover:text-gray-700" href="/user/">Your Intrest</a></li>
+                        <li><a class="dt dark:hover:text-gray-700" href="/logout/">Log Out</a></li>
+                        {% comment %} <li><a class="dt dark:hover:text-gray-700" href="#">Settings</a></li> {% endcomment %}
+    
+                    </ul>
+    
+                </div>
+                <li> <button onclick="mode()"
+                    class="shadow-md shadow-gray-500 dark:shadow-gray-200 rounded-lg text-white dark:text-black font-bold px-2 py-1 hover:opacity-80 duration-1000 dark:bg-[url('./image/dark.png')] bg-[url('./image/light-mode.png')] w-10 h-5 bg-no-repeat border-2 border-gray-300 mt-2 ml-2"></button>
+                </li>
+            </div>
+    
+        </ul>
+        <!-- phone Menu -->
+    
+        <div id="phone_menu" class="phone-menu lg:hidden inset-0 absolute transition-all -translate-x-[30rem] transform duration-500 z-10 w-1/2 h-[200%] bg-black bg-opacity-70">
+    
+           <div class="text-gray-300 flex flex-row w-full justify-end px-3 py-2 hover:text-gray-700 " onclick="closeMenu()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="fill-current w-7 h-7"><!--! Font Awesome Pro 6.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+           </div>
+            <ul
+            class="flex flex-col  text-gray-100">
+            <li class="border-b-2 border-gray-300 hover:bg-gray-400 hover:text-gray-800 px-4 py-3 w-full"><a class="dt dark:hover:text-gray-700" href="/home/">Home</a></li>
+            
+            <li class="border-b-2 border-gray-300 hover:bg-gray-400 hover:text-gray-800 px-4 py-3 w-full"><a class="dt dark:hover:text-gray-700" href="/user/">Your Jobs</a></li>
+            
+            <li class="border-b-2 border-gray-300 hover:bg-gray-400 hover:text-gray-800 px-4 py-3 w-full"><a class="dt dark:hover:text-gray-700" href="/user/">Your Intrest</a></li>
+            
+            <li class="border-b-2 border-gray-300 hover:bg-gray-400 hover:text-gray-800 px-4 py-3 w-full"><a class="dt dark:hover:text-gray-700" href="/logout/">Log Out</a></li>
+            <li class="border-b-2 flex flex-row space-x-2 justify-start border-gray-300 hover:bg-gray-400 hover:text-gray-800 px-4 py-3 w-full"><p class="dt dark:hover:text-gray-700" >Mode</p> <button onclick="mode()"
+                class="shadow-md shadow-gray-500 dark:shadow-gray-200 rounded-lg text-white dark:text-black font-bold px-2 py-1 hover:opacity-80 duration-1000 dark:bg-[url('./image/dark.png')] bg-[url('./image/light-mode.png')] w-10 h-5 bg-no-repeat border-2 border-gray-300 mt-2 ml-2"></button></li>
+            
+            {% comment %} <li class="border-b-2 border-gray-300 hover:bg-gray-400 hover:text-gray-800 px-4 py-3 w-full"><a class="dt dark:hover:text-gray-700" href="#">Settings</a></li> {% endcomment %}
+            
+    
+        <!-- phone Menu -->
+    
+        </ul>
+    
+        </div>
+        
+    
+    </nav>
+
+    <p class="auto-input text-center text-2xl dt text-gray-600 font-serif"> </p>
+
+ 
+   
+    {%for i in jobs%}
+    <div class="items2 side-window w-full my-3 lg:w-[40%] mx-auto db dt bg-white px-3 py-7  rounded-lg border-2 border-gray-200 dark:border-gray-600">
+        <div class="photo flex flex-row justify-start mx-5"  >
+            <img src="https://logo.clearbit.com/{{i.domain}}" alt="" class="w-[6rem]" id="user_photo">
+        </div>
+       
+        <span class="font-bold text-2xl text-gray-600 dt">{{i.name}}</span><br>
+        <label for="jt" class="text-gray-600 dt font-semibold">JobTitle :</label>
+       <span><p>{{i.jobtitle}}</p></span>  <br>
+       {% comment %} <label for="jt" class="text-gray-600 dt font-semibold">Location :</label>
+        <p>{{i.joblocation_address}}</p><hr class="mt-2"> {% endcomment %}
+        <div class="flex flex-row justify-around ">
+            <div class="w-[40%] flex flex-row mb-2 space-x-2">
+             <label for="jt" class="text-gray-600 dt font-semibold">Location :</label>
+             <p>{{i.joblocation_address}}</p><hr class="mt-2">
+            </div>
+            <div class="w-[40%]  flex flex-row mb-2 space-x-2">
+             <label for="jt" class="text-gray-600 dt font-semibold">Type :</label>
+             <h2>{{i.post}}</h2><hr class="mt-2">
+            </div>
+            <div class="w-[40%]  flex flex-row mb-2 space-x-2">
+           
+             <h2 class="text-gray-600 dt font-semibold">{{i.time}}</h2><hr class="mt-2">
+            </div>
+        </div>
+        <div class="hidden">
+            <p>{{i.jobdescription}}</p><br>
+            <p>{{i.skills}}</p><br>
+            <p>{{i.vacencies}}</p><br>
+            <p>{{i.domain}}</p><br>
+            <p>{{i.linkedin}}</p><br>
+            <p>{{i.job_id}}</p><br>
+            </div>
+        <button type=""  onclick="jobModalSwitch()"
+        class="mx-auto bg-blue-800 text-white hover:bg-blue-500 active:bg-blue-800 rounded-lg px-4 py-2 jobbtn mt-3" >Open</button>
+    
+    
+    </div>
+    
+       {% endfor %}
+
+
+      <!-- job desc -->
+ 
+   <div class="fixed top-0 left-0 w-full h-full hidden z-10 bg-black bg-opacity-70  " style="overflow-y: scroll;" id="jobModal" >
+    <div class="flex flex-row justify-center mt-10">
+        <div
+            class="window im db dark:border-none bg-white border-2 border-gray-300 px-6 pb-24 pt-10 justify-center rounded-lg">
+            <div class="flex flex-row justify-end -mt-3 mb-3 ">
+                <button type="" onclick="closeModal()"
+                    class="h-7 w-7 bg-red-600 rounded-full flex flex-col hover:shadow-lg hover:shadow-red-500 hover:bg-red-500 active:bg-red-600 justify-center text-center text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"
+                        class="fill-current w-5 h-5 mx-auto">
+                        <!--! Font Awesome Pro 6.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                        <path
+                            d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z" />
+                    </svg>
+                </button>
+            </div>
+            <div class="photo flex flex-row justify-start mx-5"  >
+                <img src="" alt="" class="w-[6rem]" id="cmp_photo" >
+            </div>
+            <div class="items" id="jobitems">
+                
+                <p id="cmp" class="font-bold text-2xl text-gray-600 dt company"></p><br>
+                <label for="jt" class="text-gray-600 dt font-semibold">JobTitle :</label>
+                <p id="jt" class="dt jobtitle"></p><br>
+                <label for="jt" class="text-gray-600 dt font-semibold">Location :</label>
+
+                <p id="jl" class="dt joblocation_address"></p><br>
+                <details class="cursor-pointer dtl text-red-800 font-semibold mb-5" ><summary>Job Description </summary> <p id="jd" class="dt jobdescription text-gray-600 text-xs " ></p><br></details>
+                <label for="jt" class="text-gray-600 dt font-semibold">Skills Required :</label>
+                <p id="sk" class="dt skills"></p><br>
+                <div class="foot flex flex-col space-y-2 sm:flex-row sm:space-x-3 justify-around dt border-2 border-gray-200 rounded-lg" style="padding:4px 4px 4px 4px ;">
+                    <p id="vc" class="vacencies dt text-xs"></p>
+                    <p id="dm" class="domain  text-blue-500 cursor-pointer text-xs"></p>
+                    <p id="li" class="linkedin text-blue-500 cursor-pointer text-xs"></p>
+                </div>
+            </div>
+           
+           
+            
+            
+            
+            <form action="/delete_post_job/" method="Post" id="jobModalForm" class="flex flex-col space-y-3 ">
+            {% csrf_token %}
+                {% comment %} <input type="hidden" placeholder="Job Title" name="job_applicant_id" value="{{request.session.job_applicant_id}}"
+                    class="rounded-lg db  bg-gray-200   dark:border-[1px] dark:border-gray-600 focus:border-2 focus:border-blue-500 px-5 py-2 "> {% endcomment %}
+                <input type="hidden" placeholder="Job Title" name="deleted_job_id" id="pinned_job_id"
+                    class="rounded-lg db  bg-gray-200   dark:border-[1px] dark:border-gray-600 focus:border-2 focus:border-blue-500 px-5 py-2 ">
+                <div class="flex flex-row justify-end">
+                    <div>
+                
+                    <button type="submit"
+                        class="hidden w-fit bg-emerald-800 text-white hover:bg-emerald-500 active:bg-emerald-800 rounded-lg px-4 py-2" id="apply">Apply</button>
+                   
+                    <button type="submit"
+                        class=" w-fit bg-red-800 text-white hover:bg-red-600 active:bg-red-800 rounded-lg px-4 py-2" id="apply">Delete</button>
+                    </div>
+                </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+   <!-- job desc -->
+
+ 
+
+     <!-- footer -->
+     <div class="flex flex-row justify-center my-3 mx-auto text-sm dark:text-gray-500 relative bottom-0 my-10">
+        <span>Copyright© Hire and Seek 2021-2022</span>
+    </div>
+    <!-- footer -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+    <script>
+// typed cursor 
+modalSwitch = () => {
+
+// modal window is nModal
+modalWindow = document.getElementById('modal');
+// modal Form Has the id nameModal
+var formModal = document.getElementById('handrModal');
+
+modalWindow.classList.toggle('hidden');
+// formModal.getElementsByTagName('textarea')[0].value = summary;
+
+// console.log(nameModal);
+}
+
+
+jobModalSwitch = () => {
+
+// modal window is nModal
+modalWindow = document.getElementById('jobModal');
+// modal Form Has the id nameModal
+var formModal = document.getElementById('jobModalForm');
+
+modalWindow.classList.toggle('hidden');
+// formModal.getElementsByTagName('textarea')[0].value = summary;
+
+// console.log(nameModal);
+}
+
+closeModal = () => {
+            modalWindow.classList.add('hidden');
+            // document.getElementById('sModal').classList.toggle('hidden');
+
+
+
+        }
+
+
+let jobbtn=document.getElementsByClassName('jobbtn');
+
+Array.from(jobbtn).forEach((Element)=>{
+    Element.addEventListener('click',(e)=>{
+        console.log('edit is working');
+        console.log("hello");
+
+        // console.log(e.target.parentNode); for cheacking
+
+        data=e.target.parentNode;// this is full div 
+        console.log(data);
+        // we have to select the childelements of every clicked div and display it into a modal
+        company=data.getElementsByTagName('span')[0].innerHTML;
+        jobtitle=data.getElementsByTagName('p')[0].innerHTML;
+        joblocation_address=data.getElementsByTagName('p')[1].innerHTML;
+        jobdescription=data.getElementsByTagName('p')[2].innerHTML;
+        skills=data.getElementsByTagName('p')[3].innerHTML;
+        vacencies=data.getElementsByTagName('p')[4].innerHTML;
+        domain=data.getElementsByTagName('p')[5].innerHTML;
+        linkedin=data.getElementsByTagName('p')[6].innerHTML;
+        job_id=data.getElementsByTagName('p')[7].innerHTML;// this is to use when a user pin a job
+        // document.getElementById('job_id').value=job_id
+        console.log(company+"|"+jobtitle+"|"+joblocation_address+"|"+jobdescription+"|"+skills+"|"+vacencies+"|"+domain+"|"+linkedin+"|"+job_id);
+        // this is for modal window
+        var formModal = document.getElementById('jobModalForm');
+        formModal.getElementsByTagName('input')[1].value=job_id;//this will give me dynamic id
+
+        document.getElementById('cmp').innerHTML=company
+        document.getElementById('jt').innerHTML=jobtitle
+        document.getElementById('jl').innerHTML=joblocation_address
+        document.getElementById('jd').innerHTML=jobdescription
+        document.getElementById('sk').innerHTML=skills
+        document.getElementById('vc').innerHTML=vacencies
+        document.getElementById('dm').innerHTML=domain
+        document.getElementById('dm').title=domain
+        document.getElementById('pinned_job_id').title=job_id
+        document.getElementById('pinned_job_id').value=job_id
+        document.getElementById('dm').addEventListener('click',()=>{
+            window.open('https://'+domain,'_blank')
+        })
+        
+        document.getElementById('li').innerHTML=linkedin
+        document.getElementById('li').title=linkedin
+        document.getElementById('li').addEventListener('click',()=>{
+            window.open(linkedin,'_blank')
+        })
+        document.getElementById('apply').addEventListener('click',()=>{
+            window.open('https://'+domain,'_blank')
+        })
+
+        document.getElementById('cmp_photo').src='https://logo.clearbit.com/'+domain
+       
+        apply=()=>{
+           
+           return window.location='https://'+domain;
+        }
+
+    })
+})
+
+        
+
+                // Can also be included with a regular script tag
+                 
+                  var user="{{request.session.name}}".toUpperCase();
+                  var typed = new Typed(".auto-input",{
+                    strings: ['','HELLO '+user.bold(),'Here are Your Posted Jobs/internShips.'],
+                    typeSpeed: 100,
+                    backSpeed:100,
+                    loop:true
+                  })
+                 
+          
+          
+          
+
+        
+        mode = () => {
+            // let theme=localStorage.theme
+
+            // document.documentElement.classList.toggle('dark')
+            if( localStorage.theme == 'light'){
+                
+                localStorage.theme = 'dark'
+
+            }
+                
+            else if(localStorage.theme == 'dark' ){
+
+                localStorage.theme = 'light'
+
+            }
+        hhh()
+            
+        
+        }
+        // this function is for setting the dark mode according to theme saved in the local storage
+        // we can manually change the mode saved in localsta
+        function hhh(){
+            if (localStorage.theme === 'dark') {
+        document.documentElement.classList.add('dark')
+        } else {
+        document.documentElement.classList.remove('dark')
+        } 
+        }
+
+        hhh();
+
+
+      
+        closeMenu=()=>{
+           // modal window is nModal
+           
+           document.getElementById('phone_menu').classList.toggle('-translate-x-[30rem]')
+
+        }
+
+        
+        // onclicking on user photo it will be open in full form
+        
+
+        
+   
+    </script>
+    <script src="index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,484 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
+        integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/static/assets/input.css">
+    <title>WinkedIn</title>
+    <style>
+        /* Dropdown Button */
+
+
+        /* The container <div> - needed to position the dropdown content */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Dropdown Content (Hidden by Default) */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        /* Links inside the dropdown */
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        /* Change color of dropdown links on hover */
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        /* Show the dropdown menu on hover */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Change the background color of the dropdown button when the dropdown content is shown */
+        /* .dropdown:hover .dropbtn {background-color: #3e8e41;} */
+    </style>
+</head>
+
+<body class="bg-[#f3f2ef]">
+
+    <ul class="flex flex-row  space-x-48 justify-center mb-2 bg-white border-2 border-b-gray-300 py-3 w-full">
+
+        <div class="2 flex flex-row space-x-3 justify-center text-center">
+            <span class="logo ">
+                <img src="./image/linkedin_logo.png" alt="logo" class="w-7 h-7">
+            </span>
+
+            <form action="/" method="post" class="search">
+                <input type="text" placeholder="Search" class="px-3 py-1 focus:border-[1px] focus:border-blue-300 w-56">
+                <button type="submit"></button>
+            </form>
+
+        </div>
+
+        <div class="1 flex flex-row space-x-6 justify-center">
+            <li class="item1 cursor-pointer select-none"><a href="/"> Home </a> </li>
+            <li class="item2 cursor-pointer select-none"><a href="#"> Jobs </a> </li>
+            <li class="item3 cursor-pointer select-none"><a href="#"> My Network </a> </li>
+            <!-- <li class="item3 cursor-pointer select-none" id="dropdown" onclick="dropdown()">Dropdown</li>
+             -->
+            <div class="dropdown">
+                <button class="dropbtn">Dropdown</button>
+
+                <ul
+                    class="dropdown-content flex flex-col space-y-3 bg-white border-[1px] border-gray-400 rounded-lg px-5 py-3">
+                    <li><a href="./user.html">Your Profile</a></li>
+                    <li>Your Jobs</li>
+                    <li>Your Intrest</li>
+                    <li>Log Out </li>
+                    <li><a href="./settings.html">Settings</a></li>
+                </ul>
+
+            </div>
+        </div>
+
+    </ul>
+
+    <div class="heading text-[3rem] text-gray-600 text-left ml-32 dark:text-red-800">
+        Settings
+    </div>
+
+    <div class="main flex flex-row justify-center space-x-5 px-3 py-7 mt-7">
+        <div class="items1 resume w-[40%] bg-white px-3 py-7 rounded-lg border-2 border-gray-200">
+            <div class="field1 name">
+                <div class="flex flex-row justify-around">
+                    <div class="content w-[80%]">
+                        <h2 class="text-3xl font-semibold text-left" id="name">Harshit Mishra</h2>
+                        <p class="text-sm text-gray-600" id="place">bengaluru</p>
+
+                    </div>
+                    <div class="edit w-10 h-10 flex flex-row justify-center text-center rounded-full items-center hover:bg-blue-300 px-2 py-2 "
+                        onclick="nameModalSwitch()">
+                        <img src="./image/img.svg" alt="" srcset="" class="w-7 h-7">
+                        <!-- <i class="fa-light fa-pen w-7 h-7"></i> -->
+                    </div>
+                </div>
+                <div class="flex flex-row mt-5 justify-around ">
+                    <div class="flex flex-row space-x-1 ml-5 w-1/2">
+                        <div class="text-blue-500 flex flex-col justify-center"><img src="./image/mail.svg" alt=""
+                                srcset="" class="w-4 h-4"></div>
+                        <div class="text-xs text-gray-600" id="email">harshitlove28@gmail.com</div>
+                    </div>
+                    <div class="flex flex-row space-x-1 w-1/2">
+                        <div class="text-blue-500 flex flex-col justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="fill-current w-4 h-4">
+                                <!--! Font Awesome Pro 6.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                                <path
+                                    d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z" />
+                            </svg>
+                        </div>
+                        <div class="text-xs text-blue-600 font-semibold"><a
+                                href="http://linkedin.com/in/harshit-mishra-b72796209"
+                                id="website">linkedin.com/in/harshit-mishra-b72796209</a></div>
+                    </div>
+
+                </div>
+                <span id="phone" class="text-xs text-gray-400 text-left"></span>
+            </div>
+            <hr class="text-gray-500 my-3">
+
+            <div class="field2 Summary">
+                <div class="flex flex-row justify-around">
+                    <div class="content w-[80%]">
+                        <h2 class="text-lg font-semibold text-left">Summary</h2>
+
+                    </div>
+                    <div class="edit w-10 h-10 flex flex-row justify-center text-center rounded-full items-center hover:bg-blue-300 px-2 py-2 "
+                        onclick="summaryModalSwitch()">
+                        <img src="./image/img.svg" alt="" srcset="" class="w-7 h-7">
+                    </div>
+                </div>
+                <div class="text-[10px] text-gray-600 " style="font-family: cursive;" id="summary">
+                    This optional section can help you stand out to recruiters. If this section is empty, it will not
+                    appear on your resume.
+
+                </div>
+            </div>
+
+            <hr class="text-gray-500 my-3">
+
+            <div class="field3 expirence">
+                <div class="flex flex-row justify-around">
+                    <div class="content w-[80%]">
+                        <h2 class="text-lg font-semibold text-left">Expirence</h2>
+
+                    </div>
+                    <div    onclick="experienceModalSwitch()"
+                        class="edit w-10 h-10 flex flex-row justify-center text-center rounded-full items-center hover:bg-blue-300 px-2 py-2 ">
+                        <img src="./image/img.svg" alt="" srcset="" class="w-7 h-7">
+                    </div>
+                </div>
+                <div class="text-[10px] text-gray-600 text-center " style="font-family: cursive;">
+                    This section is empty and won't appear in your resume.
+
+                </div>
+            </div>
+
+            <hr class="text-gray-500 my-3">
+
+            <div class="field4 education">
+                <div class="flex flex-row justify-around">
+                    <div class="content w-[80%]">
+                        <h2 class="text-lg font-semibold text-left">Education</h2>
+
+                    </div>
+                    <div
+                        class="edit w-10 h-10 flex flex-row justify-center text-center rounded-full items-center hover:bg-blue-300 px-2 py-2 ">
+                        <img src="./image/img.svg" alt="" srcset="" class="w-7 h-7">
+                    </div>
+                </div>
+                <div class="ml-4" id="education">
+                    <div class="universityName font-semibold text-md text-gray-600">Siddaganga Institute of technology
+                    </div>
+                    <div class="Degree text-sm text-gray-400 text-left">Bachelor of Technology - BTech, Electrical,
+                        Electronics and Communications Engineering</div>
+                    <div class="timePeriod text-left text-sm">2020 - 2024</div>
+                </div>
+            </div>
+
+            <hr class="text-gray-500 my-3">
+
+            <div class="field5 license and certification">
+                <div class="flex flex-row justify-around">
+                    <div class="content w-[80%]">
+                        <h2 class="text-lg font-semibold text-left">License and Certification</h2>
+
+                    </div>
+                    <div
+                        class="edit w-10 h-10 flex flex-row justify-center text-center rounded-full items-center hover:bg-blue-300 px-2 py-2 ">
+                        <img src="./image/img.svg" alt="" srcset="" class="w-7 h-7">
+                    </div>
+                </div>
+                <div class="text-[10px] text-gray-600 text-center " style="font-family: cursive;">
+                    This section is empty and won't appear in your resume.
+
+                </div>
+
+            </div>
+
+            <hr class="text-gray-500 my-3">
+
+            <div class="field6 skills">
+                <div class="flex flex-row justify-around">
+                    <div class="content w-[80%]">
+                        <h2 class="text-lg font-semibold text-left">Skills</h2>
+
+                    </div>
+                    <div
+                        class="edit w-10 h-10 flex flex-row justify-center text-center rounded-full items-center hover:bg-blue-300 px-2 py-2 ">
+                        <img src="./image/img.svg" alt="" srcset="" class="w-7 h-7">
+                    </div>
+                </div>
+
+                <ul id="skills"
+                    class="decoration-stone-800 text-xs list-disc list-inside flex flex-row space-x-3 justify-center">
+                    <li>GitHUb</li>
+                    <li>C</li>
+                    <li>C++</li>
+                </ul>
+            </div>
+
+            <hr class="text-gray-500 my-3">
+
+            <div class="field7 honor & reward">
+                <div class="flex flex-row justify-around">
+                    <div class="content w-[80%]">
+                        <h2 class="text-lg font-semibold text-left">Honor & Reward</h2>
+
+                    </div>
+                    <div
+                        class="edit w-10 h-10 flex flex-row justify-center text-center rounded-full items-center hover:bg-blue-300 px-2 py-2 ">
+                        <img src="./image/img.svg" alt="" srcset="" class="w-7 h-7">
+                    </div>
+                </div>
+                <div class="text-[10px] text-gray-600 text-center " style="font-family: cursive;">
+                    This section is empty and won't appear in your resume.
+
+                </div>
+
+            </div>
+        </div>
+        <div class="items2 side-window w-[30%] bg-white px-3 py-7">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi in ut repellat necessitatibus mollitia
+            vel modi officia iusto error est quidem provident unde, distinctio quas suscipit maxime porro, ab soluta?
+            Assumenda tempora excepturi eum qui sed, officiis quasi! Perspiciatis voluptates illum blanditiis debitis
+            nesciunt in recusandae! Nihil ut reprehenderit cumque tempore nemo porro voluptate, dolorem laudantium
+            nesciunt cupiditate reiciendis, vitae corporis officiis repellat id, suscipit aliquid quo ipsum tenetur.
+            Ullam neque ex obcaecati doloremque laborum ad unde distinctio quo hic odio. Eos ullam repellendus optio
+            praesentium. Cum odio ullam, ipsa incidunt cupiditate suscipit dolores nihil, vel saepe aspernatur nemo
+            autem sequi excepturi accusamus ad explicabo perferendis omnis labore inventore ipsam deserunt eligendi
+            quasi dicta! Nesciunt veritatis, suscipit ducimus commodi aliquid numquam esse minus et obcaecati labore
+            accusamus possimus aspernatur excepturi nostrum iste quae? Tempora accusantium tenetur sapiente quisquam
+            placeat excepturi rem assumenda explicabo fuga totam, ut, quidem eveniet, voluptatibus consequuntur veniam
+            harum consequatur vitae. Distinctio officiis dicta harum quam quisquam soluta facilis repellendus error
+            perspiciatis nisi, possimus, exercitationem enim accusamus dolores delectus sed aperiam odio cupiditate
+            ipsum aspernatur vero. Provident quo eius ratione magnam inventore dolore voluptas et perspiciatis vitae,
+            saepe ipsum pariatur impedit voluptatum repellat dolorum veniam accusamus modi.
+        </div>
+    </div>
+    <div class="w-full h-[200%] hidden  absolute inset-0 bg-black bg-opacity-70 z-10" id="imageId">
+        <img src="./image/close.svg" alt="" srcset="" class="w-32 h-32">
+    </div>
+    <!-- Name Modal -->
+    <div class="w-full h-[200%] hidden  absolute inset-0 bg-black bg-opacity-70 z-10 " id="nModal">
+        <div class="flex flex-row justify-center mt-32">
+            <div
+                class="window w-[40%] bg-white border-2 border-gray-300 px-6 pb-24 pt-10 justify-center rounded-lg">
+                <div class="flex flex-row justify-end -mt-3 mb-3 ">
+                    <button type="" onclick="closeModal()"
+                        class="h-7 w-7 bg-red-600 rounded-full flex flex-col hover:shadow-lg hover:shadow-red-500 hover:bg-red-500 active:bg-red-600 justify-center text-center text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"
+                            class="fill-current w-5 h-5 mx-auto">
+                            <!--! Font Awesome Pro 6.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                            <path
+                                d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z" />
+                        </svg>
+                    </button>
+                </div>
+            <form action="./user.html" method="" id="nameModal" class="flex flex-col space-y-3 ">
+
+               
+
+                <div class="flex flex-row space-x-4 w-full justify-center">
+                    <input type="text" placeholder="Name" name="name"
+                        class="rounded-lg bg-gray-200 focus:bg-white border-none focus:border-2 focus:border-blue-500 px-5 py-2 w-1/2">
+                    <input type="text" placeholder="Location" name="place"
+                        class="rounded-lg bg-gray-200 focus:bg-white border-none focus:border-2 focus:border-blue-500 px-5 py-2 w-1/2 ">
+                </div>
+
+                <input type="email" placeholder="UserName or Email" name="email"
+                    class="rounded-lg bg-gray-200 focus:bg-white border-none focus:border-2 focus:border-blue-500 px-5 py-2 ">
+                <input type="website" placeholder="Website" name="website"
+                    class="rounded-lg bg-gray-200 focus:bg-white border-none focus:border-2 focus:border-blue-500 px-5 py-2 ">
+                <input type="text" placeholder="Phone Number" pattern="[0-9]{10}"
+                    title="Please enter a ten Digit phone Number"
+                    class="rounded-lg bg-gray-200 focus:bg-white border-none focus:ring-blue-400 focus:ring-1 px-5 py-2 ">
+
+                <div class="flex flex-row space-x-2 justify-end">
+                    <button type="reset"
+                        class="w-fit bg-blue-800 text-white hover:bg-blue-500 active:bg-blue-800 rounded-lg px-4 py-2">reset</button>
+                    <button type="submit"
+                        class=" w-fit bg-emerald-800 text-white hover:bg-emerald-500 active:bg-emerald-800 rounded-lg px-4 py-2">Save</button>
+                </div>
+            </form>
+        </div>
+        </div>
+    </div>
+
+    <!-- Summary Modal -->
+    <div class="w-full h-[200%] hidden  absolute inset-0 bg-black bg-opacity-70 z-10 " id="sModal">
+
+        <div class="flex flex-row justify-center mt-32">
+
+
+            <div
+                class="window flex flex-col space-y-3 w-[40%] bg-white border-2 border-gray-300 px-6 pb-24 pt-10 justify-center rounded-lg">
+
+                <div class="flex flex-row justify-end -mt-3 mb-3 ">
+                    <button type="" onclick="closeModal()"
+                        class="h-7 w-7 bg-red-600 rounded-full flex flex-col hover:shadow-lg hover:shadow-red-500 hover:bg-red-500 active:bg-red-600 justify-center text-center text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"
+                            class="fill-current w-5 h-5 mx-auto">
+                            <!--! Font Awesome Pro 6.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                            <path
+                                d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z" />
+                        </svg>
+                    </button>
+                </div>
+                <form action="./user.html" method="" id="summaryModal">
+
+
+
+                    <!-- 
+                <input type="email" placeholder="UserName or Email" name="email"
+                    class="rounded-lg bg-gray-200 focus:bg-white border-none focus:border-2 focus:border-blue-500 px-5 py-2 "> -->
+                    <textarea name="summary" id="summary" cols="30" rows="10"
+                        class="rounded-lg bg-gray-200 focus:bg-white border-none focus:border-2 focus:border-blue-500 px-5 py-2 w-full"
+                        placeholder="Enter something About You..."></textarea>
+
+                    <div class="flex flex-row space-x-2 justify-end">
+                        <button type="reset"
+                            class="w-fit bg-blue-800 text-white hover:bg-blue-500 active:bg-blue-800 rounded-lg px-4 py-2">reset</button>
+                        <button onclick="edit()" type="submit"
+                            class=" w-fit bg-emerald-800 text-white hover:bg-emerald-500 active:bg-emerald-800 rounded-lg px-4 py-2">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- experience Modal -->
+    <div class="w-full h-[200%] hidden  absolute inset-0 bg-black bg-opacity-70 z-10 " id="expModal">
+
+        <div class="flex flex-row justify-center mt-32">
+           
+    
+            <div
+                class="window flex flex-col space-y-3 w-[40%] bg-white border-2 border-gray-300 px-6 pb-24 pt-10 justify-center rounded-lg">
+    
+                <div class="flex flex-row justify-end -mt-3 mb-3 ">
+                    <button type="" onclick="closeModal()"
+                        class="h-7 w-7 bg-red-600 rounded-full flex flex-col hover:shadow-lg hover:shadow-red-500 hover:bg-red-500 active:bg-red-600 justify-center text-center text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="fill-current w-5 h-5 mx-auto">
+                            <!--! Font Awesome Pro 6.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                            <path
+                                d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z" />
+                        </svg>
+                    </button>
+                </div>
+                <form action="./user.html" method="" id="experienceModal">
+    
+    
+    
+                    <!-- 
+                <input type="email" placeholder="UserName or Email" name="email"
+                    class="rounded-lg bg-gray-200 focus:bg-white border-none focus:border-2 focus:border-blue-500 px-5 py-2 "> -->
+                    <textarea name="summary" id="summary" cols="30" rows="10"
+                        class="rounded-lg bg-gray-200 focus:bg-white border-none focus:border-2 focus:border-blue-500 px-5 py-2 w-full"
+                        placeholder="Describe your experience..."></textarea>
+    
+                    <div class="flex flex-row space-x-2 justify-end">
+                        <button type="reset"
+                            class="w-fit bg-blue-800 text-white hover:bg-blue-500 active:bg-blue-800 rounded-lg px-4 py-2">reset</button>
+                        <button onclick="edit()" type="submit"
+                            class=" w-fit bg-emerald-800 text-white hover:bg-emerald-500 active:bg-emerald-800 rounded-lg px-4 py-2">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+       
+
+
+
+        nameModalSwitch = () => {
+            var name = document.getElementById('name').innerHTML;
+            var place = document.getElementById('place').innerHTML;
+            var email = document.getElementById('email').innerHTML;
+            var phone = document.getElementById('phone').innerHTML;
+            var summary = document.getElementById('summary').innerHTML;
+            var website = document.getElementById('website').innerHTML;
+            // modal window is nModal
+            modalWindow = document.getElementById('nModal');
+            // modal Form Has the id nameModal
+            var formModal = document.getElementById('nameModal');
+            modalWindow.classList.toggle('hidden');
+            formModal.getElementsByTagName('input')[0].value = name;
+            formModal.getElementsByTagName('input')[1].value = place;
+            formModal.getElementsByTagName('input')[2].value = email;
+            formModal.getElementsByTagName('input')[3].value = website;
+            // console.log(nameModal);
+        }
+
+
+
+
+
+        summaryModalSwitch = () => {
+
+            // modal window is nModal made it as global variable so that we can access it anywhere in any function
+            modalWindow = document.getElementById('sModal');
+            // modal Form Has the id nameModal
+            var formModal = document.getElementById('summaryModal');
+
+            modalWindow.classList.toggle('hidden');
+            // formModal.getElementsByTagName('textarea')[0].value = summary;
+
+            // console.log(nameModal);
+        }
+        experienceModalSwitch = () => {
+
+            // modal window is nModal
+            modalWindow = document.getElementById('expModal');
+            // modal Form Has the id nameModal
+            var formModal = document.getElementById('experienceModal');
+
+            modalWindow.classList.toggle('hidden');
+            // formModal.getElementsByTagName('textarea')[0].value = summary;
+
+            // console.log(nameModal);
+        }
+
+        closeModal = () => {
+            modalWindow.classList.add('hidden');
+            // document.getElementById('sModal').classList.toggle('hidden');
+
+
+
+        }
+
+
+        window.onload = function () {
+            document.getElementById('imageId').style.display = 'none';
+        };
+        if (localStorage.theme === 'dark') {
+            document.documentElement.classList.add('dark')
+            } else {
+            document.documentElement.classList.remove('dark')
+            }
+    </script>
+    <script src="index.js"></script>
+</body>
+
+</html>

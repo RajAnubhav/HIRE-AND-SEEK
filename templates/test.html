@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>This isfor testing </h2>
+
+    <form action="/test/" method="post">
+        {% csrf_token%}
+        <input type="text" placeholder="name" name="name">
+        <input type="text" placeholder="email" name="email">
+        <input type="text" placeholder="password" name="password">
+        <input type="text" placeholder="dob" name="dob">
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

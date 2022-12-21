@@ -1,0 +1,975 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
+        integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+    <link rel="stylesheet" href="/static/assets/input.css">
+    <title>WinkedIn</title>
+    <style>
+        /* Dropdown Button */
+
+
+        /* The container <div> - needed to position the dropdown content */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Dropdown Content (Hidden by Default) */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        /* Links inside the dropdown */
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        /* Change color of dropdown links on hover */
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        /* Show the dropdown menu on hover */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+
+        /* Change the background color of the dropdown button when the dropdown content is shown */
+        /* .dropdown:hover .dropbtn {background-color: #3e8e41;} */
+    </style>
+</head>
+
+<body class="bg-[#f3f2ef] dark:bg-black duration-700 dt ">
+
+    <ul class="flex flex-row lg:space-x-48 justify-center mb-2 bg-white border-b-2 border-gray-300 py-3 w-full db dt">
+
+        <div class="2 flex flex-row space-x-3 justify-center text-center">
+            <span class="logo text-blue-800 dt ">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="fill-current w-7 h-7">
+                    <!--! Font Awesome Pro 6.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                    <path
+                        d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z" />
+                </svg>
+            </span>
+
+            <form action="/" method="post" class="search">
+                <input type="text" placeholder="Search"
+                    class="px-3 py-1 focus:border-[1px] focus:border-blue-300 w-56 db pl">
+                <button type="submit"></button>
+            </form>
+
+        </div>
+        <!-- menu-icon -->
+        
+            <div class="menu-icon dark:text-blue-300 lg:hidden hover:text-fuchsia-600 active:text-fuchsia-900 rounded-full w-11 h-11 flex flex-row justify-center" onclick="document.getElementById('phone_menu').classList.toggle('-translate-x-[30rem]')">
+              <div class="flex flex-col justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-7 h-7 fill-current"><!--! Font Awesome Pro 6.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+              </div>
+            </div>
+        
+
+        <div class="1 hidden lg:flex flex-row space-x-6 justify-center">
+            <li class="item1 cursor-pointer select-none"><a href="/"> Home </a> </li>
+            <li class="item2 cursor-pointer select-none"><a href="#"> Jobs </a> </li>
+            <li class="item3 cursor-pointer select-none"><a href="#"> My Network </a> </li>
+            <!-- <li class="item3 cursor-pointer select-none" id="dropdown" onclick="dropdown()">Dropdown</li>
+             -->
+            <div class="dropdown">
+                <button class="dropbtn">Dropdown</button>
+
+                <ul
+                    class="dropdown-content space-y-3 bg-white border-[1px] border-gray-400 rounded-lg db ">
+                    <li><a class="dt dark:hover:text-gray-700" href="/user/">Your Profile</a></li>
+                    <li><a class="dt dark:hover:text-gray-700" href="/user/">Your Jobs</a></li>
+                    <li><a class="dt dark:hover:text-gray-700" href="/user/">Your Intrest</a></li>
+                    <li><a class="dt dark:hover:text-gray-700" href="/logout/">Log Out</a></li>
+                    <li><a class="dt dark:hover:text-gray-700" href="/settings/">Settings</a></li>
+
+                </ul>
+
+            </div>
+            <li> <button onclick="mode()"
+                class="shadow-md shadow-gray-500 dark:shadow-gray-200 rounded-lg text-white dark:text-black font-bold px-2 py-1 hover:opacity-80 duration-1000 dark:bg-[url('./image/dark.png')] bg-[url('./image/light-mode.png')] w-10 h-5 bg-no-repeat border-2 border-gray-300 mt-2 ml-2"></button>
+            </li>
+        </div>
+
+    </ul>
+    <!-- phone Menu -->
+
+    <div id="phone_menu" class="phone-menu lg:hidden inset-0 absolute transition-all -translate-x-[30rem] transform duration-500 z-10 w-1/2 h-[200%] bg-black bg-opacity-70">
+
+       <div class="text-gray-300 flex flex-row w-full justify-end px-3 py-2 hover:text-gray-700 " onclick="closeMenu()">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="fill-current w-7 h-7"><!--! Font Awesome Pro 6.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+       </div>
+        <ul
+        class="flex flex-col  text-gray-100">
+        <li class="border-b-2 border-gray-300 hover:bg-gray-400 hover:text-gray-800 px-4 py-3 w-full"><a class="dt dark:hover:text-gray-700" href="/">Home</a></li>
+        
+        <li class="border-b-2 border-gray-300 hover:bg-gray-400 hover:text-gray-800 px-4 py-3 w-full"><a class="dt dark:hover:text-gray-700" href="/user/">Your Jobs</a></li>
+        
+        <li class="border-b-2 border-gray-300 hover:bg-gray-400 hover:text-gray-800 px-4 py-3 w-full"><a class="dt dark:hover:text-gray-700" href="/user/">Your Intrest</a></li>
+        
+        <li class="border-b-2 border-gray-300 hover:bg-gray-400 hover:text-gray-800 px-4 py-3 w-full"><a class="dt dark:hover:text-gray-700" href="/logout/">Log Out</a></li>
+        <li class="border-b-2 flex flex-row space-x-2 justify-start border-gray-300 hover:bg-gray-400 hover:text-gray-800 px-4 py-3 w-full"><p class="dt dark:hover:text-gray-700" >Mode</p> <button onclick="mode()"
+            class="shadow-md shadow-gray-500 dark:shadow-gray-200 rounded-lg text-white dark:text-black font-bold px-2 py-1 hover:opacity-80 duration-1000 dark:bg-[url('./image/dark.png')] bg-[url('./image/light-mode.png')] w-10 h-5 bg-no-repeat border-2 border-gray-300 mt-2 ml-2"></button></li>
+        
+        <li class="border-b-2 border-gray-300 hover:bg-gray-400 hover:text-gray-800 px-4 py-3 w-full"><a class="dt dark:hover:text-gray-700" href="/settings/">Settings</a></li>
+        
+
+    <!-- phone Menu -->
+
+    </ul>
+
+    </div>
+    
+
+    <div class="main flex flex-col lg:flex-row justify-center space-x-5 px-3 py-7 mt-7">
+
+        <!-- ======================= item1 ==================================== -->
+        <div
+            class="items1 resume w-full lg:w-[40%] db bg-white px-3 py-7 rounded-lg border-2 border-gray-200 dark:border-gray-600">
+            <div class="field1 name">
+                <div class="photo flex flex-row justify-start mx-5" onclick="photo()" >
+                    <img src="/static/image/user.png" alt="" class="w-[6rem]" id="user_photo" onclick="photoClose()">
+                </div>
+                <div class="flex flex-row justify-around">
+                    <div class="content w-[80%]">
+                        <h2 class="text-3xl font-semibold text-left" id="name">{{name}}</h2>
+                        <p class="text-sm text-gray-600 dt" id="place">{{place}}</p>
+
+                    </div>
+                    <div class="edit w-10 h-10 flex flex-row justify-center text-center rounded-full items-center hover:bg-blue-300 px-2 py-2 "
+                        onclick="nameModalSwitch()">
+
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                            Class="dark:fill-gray-200 w-7 h-7">
+                            <!--! Font Awesome Pro 6.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                            <path
+                                d="M362.7 19.32C387.7-5.678 428.3-5.678 453.3 19.32L492.7 58.75C517.7 83.74 517.7 124.3 492.7 149.3L444.3 197.7L314.3 67.72L362.7 19.32zM421.7 220.3L188.5 453.4C178.1 463.8 165.2 471.5 151.1 475.6L30.77 511C22.35 513.5 13.24 511.2 7.03 504.1C.8198 498.8-1.502 489.7 .976 481.2L36.37 360.9C40.53 346.8 48.16 333.9 58.57 323.5L291.7 90.34L421.7 220.3z" />
+                        </svg>
+
+                        <!-- <i class="fa-light fa-pen w-7 h-7"></i> -->
+                    </div>
+                </div>
+                <div class="flex flex-row mt-5 justify-around ">
+                    <div class="flex flex-row space-x-1 ml-5 w-1/2">
+                        <div class="text-blue-500 flex flex-col justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                                Class="dark:fill-white w-4 h-4">
+                                <!--! Font Awesome Pro 6.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                                <path
+                                    d="M464 64C490.5 64 512 85.49 512 112C512 127.1 504.9 141.3 492.8 150.4L275.2 313.6C263.8 322.1 248.2 322.1 236.8 313.6L19.2 150.4C7.113 141.3 0 127.1 0 112C0 85.49 21.49 64 48 64H464zM217.6 339.2C240.4 356.3 271.6 356.3 294.4 339.2L512 176V384C512 419.3 483.3 448 448 448H64C28.65 448 0 419.3 0 384V176L217.6 339.2z" />
+                            </svg>
+                        </div>
+                        <div class="text-xs text-gray-600 dt" id="email">{{email}}</div>
+                    </div>
+                    <div class="flex flex-row space-x-1 w-1/2">
+                        <div class="dt text-blue-500 flex flex-col justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="fill-current w-4 h-4">
+                                <!--! Font Awesome Pro 6.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                                <path
+                                    d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z" />
+                            </svg>
+                        </div>
+                        <div class="text-xs text-blue-600 font-semibold dt"><a
+                                href="{{website}}"
+                                id="website">{{website}}</a></div>
+                    </div>
+
+                </div>
+                <span id="phone" class="text-xs text-gray-400 text-left"></span>
+            </div>
+            <hr class="text-gray-500 my-3 dark:text-gray-600">
+
+            <div class="field2 Summary">
+                <div class="flex flex-row justify-around">
+                    <div class="content w-[80%]">
+                        <h2 class="text-lg font-semibold text-left">Summary</h2>
+
+                    </div>
+                    <div class="edit w-10 h-10 flex flex-row justify-center text-center rounded-full items-center hover:bg-blue-300 px-2 py-2 "
+                        onclick="summaryModalSwitch()">
+
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                            Class="dark:fill-gray-200 w-7 h-7">
+                            <!--! Font Awesome Pro 6.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                            <path
+                                d="M362.7 19.32C387.7-5.678 428.3-5.678 453.3 19.32L492.7 58.75C517.7 83.74 517.7 124.3 492.7 149.3L444.3 197.7L314.3 67.72L362.7 19.32zM421.7 220.3L188.5 453.4C178.1 463.8 165.2 471.5 151.1 475.6L30.77 511C22.35 513.5 13.24 511.2 7.03 504.1C.8198 498.8-1.502 489.7 .976 481.2L36.37 360.9C40.53 346.8 48.16 333.9 58.57 323.5L291.7 90.34L421.7 220.3z" />
+                        </svg>
+
+                    </div>
+                </div>
+                <div class="text-[10px] text-gray-600 " style="font-family: cursive;" id="summary">
+                   {{summary}}
+                </div>
+            </div>
+
+            <hr class="text-gray-500 my-3 dark:text-gray-600">
+
+            <div class="field3 expirence">
+                <div class="flex flex-row justify-around">
+                    <div class="content w-[80%]">
+                        <h2 class="text-lg font-semibold text-left">Expirence</h2>
+
+                    </div>
+                    <div onclick="experienceModalSwitch()"
+                        class="edit w-10 h-10 flex flex-row justify-center text-center rounded-full items-center hover:bg-blue-300 px-2 py-2 ">
+
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                            Class="dark:fill-gray-200 w-7 h-7">
+                            <!--! Font Awesome Pro 6.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                            <path
+                                d="M362.7 19.32C387.7-5.678 428.3-5.678 453.3 19.32L492.7 58.75C517.7 83.74 517.7 124.3 492.7 149.3L444.3 197.7L314.3 67.72L362.7 19.32zM421.7 220.3L188.5 453.4C178.1 463.8 165.2 471.5 151.1 475.6L30.77 511C22.35 513.5 13.24 511.2 7.03 504.1C.8198 498.8-1.502 489.7 .976 481.2L36.37 360.9C40.53 346.8 48.16 333.9 58.57 323.5L291.7 90.34L421.7 220.3z" />
+                        </svg>
+
+                    </div>
+                </div>
+                <div class="text-[10px]  text-gray-600 text-center " style="font-family: cursive;">
+                   {{experience}}
+
+                </div>
+            </div>
+
+            <hr class="text-gray-500 my-3 dark:text-gray-600">
+
+            <div class="field4 education">
+                <div class="flex flex-row justify-around">
+                    <div class="content w-[80%]">
+                        <h2 class="text-lg font-semibold text-left">Education</h2>
+
+                    </div>
+                    <div onclick="educationModalSwitch()"
+                        class="edit w-10 h-10 flex flex-row justify-center text-center rounded-full items-center hover:bg-blue-300 px-2 py-2 ">
+
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                            Class="dark:fill-gray-200 w-7 h-7">
+                            <!--! Font Awesome Pro 6.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                            <path
+                                d="M362.7 19.32C387.7-5.678 428.3-5.678 453.3 19.32L492.7 58.75C517.7 83.74 517.7 124.3 492.7 149.3L444.3 197.7L314.3 67.72L362.7 19.32zM421.7 220.3L188.5 453.4C178.1 463.8 165.2 471.5 151.1 475.6L30.77 511C22.35 513.5 13.24 511.2 7.03 504.1C.8198 498.8-1.502 489.7 .976 481.2L36.37 360.9C40.53 346.8 48.16 333.9 58.57 323.5L291.7 90.34L421.7 220.3z" />
+                        </svg>
+
+                    </div>
+                </div>
+                <div class="ml-4" id="education">
+                    <div class="universityName font-semibold text-md text-gray-600 dt">{{college}}
+                    </div>
+                    <div class="Degree text-sm text-gray-400 text-left">{{degree}}</div>
+                    <div class="timePeriod text-left text-sm">{{timePeriod}}</div>
+                </div>
+            </div>
+
+            <hr class="text-gray-500 my-3 dark:text-gray-600">
+
+            <div class="field5 license and certification">
+                <div class="flex flex-row justify-around">
+                    <div class="content w-[80%]">
+                        <h2 class="text-lg font-semibold text-left">License and Certification</h2>
+
+                    </div>
+                    <div    onclick="licenseModalSwitch()"
+                        class="edit w-10 h-10 flex flex-row justify-center text-center rounded-full items-center hover:bg-blue-300 px-2 py-2 ">
+
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                            Class="dark:fill-gray-200 w-7 h-7">
+                            <!--! Font Awesome Pro 6.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                            <path
+                                d="M362.7 19.32C387.7-5.678 428.3-5.678 453.3 19.32L492.7 58.75C517.7 83.74 517.7 124.3 492.7 149.3L444.3 197.7L314.3 67.72L362.7 19.32zM421.7 220.3L188.5 453.4C178.1 463.8 165.2 471.5 151.1 475.6L30.77 511C22.35 513.5 13.24 511.2 7.03 504.1C.8198 498.8-1.502 489.7 .976 481.2L36.37 360.9C40.53 346.8 48.16 333.9 58.57 323.5L291.7 90.34L421.7 220.3z" />
+                        </svg>
+
+                    </div>
+                </div>
+                <div class="text-[10px] text-gray-600 text-center  " style="font-family: cursive;">
+                    {% comment %} {%if certificate_name=='cn' %} {% endcomment %}
+                        This section is empty and won't appear in your resume.
+                    {% comment %} {%else%} {% endcomment %}
+                        <div class="ml-4" id="license">
+                            <div class="universityName font-semibold text-md text-gray-600 dt">{{certificate_name}}
+                            </div>
+                            <div class="Degree text-sm text-gray-400 text-left">{{certificate_desc}}</div>
+                        </div>
+                    {% comment %} {%endif%} {% endcomment %}
+
+                </div>
+
+            </div>
+
+            <hr class="text-gray-500 my-3 dark:text-gray-600">
+
+            <div class="field6 skills">
+                <div class="flex flex-row justify-around">
+                    <div class="content w-[80%]">
+                        <h2 class="text-lg font-semibold text-left">Skills</h2>
+
+                    </div>
+                    <div    onclick="skillModalSwitch()"
+                        class="edit w-10 h-10 flex flex-row justify-center text-center rounded-full items-center hover:bg-blue-300 px-2 py-2 ">
+
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                            Class="dark:fill-gray-200 w-7 h-7">
+                            <!--! Font Awesome Pro 6.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                            <path
+                                d="M362.7 19.32C387.7-5.678 428.3-5.678 453.3 19.32L492.7 58.75C517.7 83.74 517.7 124.3 492.7 149.3L444.3 197.7L314.3 67.72L362.7 19.32zM421.7 220.3L188.5 453.4C178.1 463.8 165.2 471.5 151.1 475.6L30.77 511C22.35 513.5 13.24 511.2 7.03 504.1C.8198 498.8-1.502 489.7 .976 481.2L36.37 360.9C40.53 346.8 48.16 333.9 58.57 323.5L291.7 90.34L421.7 220.3z" />
+                        </svg>
+
+                    </div>
+                </div>
+                <div>
+                    <div class="skills-window ml-4 flex flex-col space-y-3">
+                    <div class="Database-work-with">
+                        <div class="universityName font-semibold text-md text-gray-600 dt">Database work with
+                        </div>
+                    <ul id="dbww" class="decoration-stone-800 text-xs list-disc list-inside flex flex-row space-x-3 justify-center">
+                        {{database_worked_with}}
+                        {% comment %} <p>GitHUb</p>
+                        <p>C</p>
+                        <p>C++</p> {% endcomment %}
+                    </div>
+                  <div class="Language">
+                    <div class="universityName font-semibold text-md text-gray-600 dt">Language Work With
+                    </div>
+                <ul id="lww" class="decoration-stone-800 text-xs list-disc list-inside flex flex-row space-x-3 justify-center">
+                    {{language_worked_with}}
+                    {% comment %} <p>GitHUb</p>
+                    <p>C</p>
+                    <p>C++</p> {% endcomment %}
+                </ul>
+                  </div>
+                  <div class="Collab tools">
+                    <div class="universityName font-semibold text-md text-gray-600 dt">Collab tools
+                    </div>
+                <ul id="ct" class="decoration-stone-800 text-xs list-disc list-inside flex flex-row space-x-3 justify-center">
+                    {{collab_tools}}
+                    
+                    {% comment %} <p>GitHUb</p>
+                    <p>C</p>
+                    <p>C++</p> {% endcomment %}
+                </ul>
+                  </div>
+                  <div class="OpSys">
+                    <div class="universityName font-semibold text-md text-gray-600 dt">Operating Systems Work With
+                    </div>
+                <ul id="opsys" class="decoration-stone-800 text-xs list-disc list-inside flex flex-row space-x-3 justify-center">
+                    {{opsys}}
+                    {% comment %} <p>GitHUb</p>
+                    <p>C</p>
+                    <p>C++</p> {% endcomment %}
+                </ul>
+                  </div>
+                  <div class="Plateform-worked-with">
+                    <div class="universityName font-semibold text-md text-gray-600 dt">Platefrom Work With
+                    </div>
+                <ul id="pww" class="decoration-stone-800 text-xs list-disc list-inside flex flex-row space-x-3 justify-center">
+                    {{plateform_worked_with}}
+                    {% comment %} <p>GitHUb</p>
+                    <p>C</p>
+                    <p>C++</p> {% endcomment %}
+                </ul>
+                  </div>
+            </div>
+        </div>
+            </div>
+
+            <hr class="text-gray-500 my-3 dark:text-gray-600">
+
+            <div class="field7 honor & reward">
+                <div class="flex flex-row justify-around">
+                    <div class="content w-[80%]">
+                        <h2 class="text-lg font-semibold text-left">Honor & Reward</h2>
+
+                    </div>
+                    <div    onclick="honorModalSwitch()"
+                        class="edit w-10 h-10 flex flex-row justify-center text-center rounded-full items-center hover:bg-blue-300 px-2 py-2 ">
+
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                            Class="dark:fill-gray-200 w-7 h-7">
+                            <!--! Font Awesome Pro 6.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                            <path
+                                d="M362.7 19.32C387.7-5.678 428.3-5.678 453.3 19.32L492.7 58.75C517.7 83.74 517.7 124.3 492.7 149.3L444.3 197.7L314.3 67.72L362.7 19.32zM421.7 220.3L188.5 453.4C178.1 463.8 165.2 471.5 151.1 475.6L30.77 511C22.35 513.5 13.24 511.2 7.03 504.1C.8198 498.8-1.502 489.7 .976 481.2L36.37 360.9C40.53 346.8 48.16 333.9 58.57 323.5L291.7 90.34L421.7 220.3z" />
+                        </svg>
+
+                    </div>
+                </div>
+                <div class="text-[10px] text-gray-600 text-center " style="font-family: cursive;">
+                    This section is empty and won't appear in your resume.
+                    <div class="ml-4" id="rewards">
+                        <div class="universityName font-semibold text-md text-gray-600 dt">{{honor_or_reward}}
+                        </div>
+                        <div class="Degree text-sm text-gray-400 text-left">{{honor_or_reward_desc}}</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- ======================= item2 ==================================== -->
+
+        <div
+            class="items2 side-window w-full lg:w-[30%] db dt bg-white px-3 py-7  rounded-lg border-2 border-gray-200 dark:border-gray-600">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi in ut repellat necessitatibus mollitia
+            vel modi officia iusto error est quidem provident unde, distinctio quas suscipit maxime porro, ab soluta?
+            Assumenda tempora excepturi eum qui sed, officiis quasi! Perspiciatis voluptates illum blanditiis debitis
+            nesciunt in recusandae! Nihil ut reprehenderit cumque tempore nemo porro voluptate, dolorem laudantium
+            nesciunt cupiditate reiciendis, vitae corporis officiis repellat id, suscipit aliquid quo ipsum tenetur.
+            Ullam neque ex obcaecati doloremque laborum ad unde distinctio quo hic odio. Eos ullam repellendus optio
+            praesentium. Cum odio ullam, ipsa incidunt cupiditate suscipit dolores nihil, vel saepe aspernatur nemo
+            autem sequi excepturi accusamus ad explicabo perferendis omnis labore inventore ipsam deserunt eligendi
+            quasi dicta! Nesciunt veritatis, suscipit ducimus commodi aliquid numquam esse minus et obcaecati labore
+            accusamus possimus aspernatur excepturi nostrum iste quae? Tempora accusantium tenetur sapiente quisquam
+            placeat excepturi rem assumenda explicabo fuga totam, ut, quidem eveniet, voluptatibus consequuntur veniam
+            harum consequatur vitae. Distinctio officiis dicta harum quam quisquam soluta facilis repellendus error
+            perspiciatis nisi, possimus, exercitationem enim accusamus dolores delectus sed aperiam odio cupiditate
+            ipsum aspernatur vero. Provident quo eius ratione magnam inventore dolore voluptas et perspiciatis vitae,
+            saepe ipsum pariatur impedit voluptatum repellat dolorum veniam accusamus modi.
+        </div>
+    </div>
+    <div class="w-full h-[200%] hidden  absolute inset-0 bg-black bg-opacity-70 z-10" id="imageId">
+        <img src="./image/close.svg" alt="" srcset="" class="w-32 h-32">
+    </div>
+
+
+
+    <!-- =============Modals======================= -->
+
+
+
+    <!-- Name Modal -->
+    <div class="w-full h-[200%] hidden  absolute inset-0 bg-black bg-opacity-70 z-10 " id="nModal">
+        <div class="flex flex-row justify-center mt-32">
+            <div
+                class="window im db dark:border-none bg-white border-2 border-gray-300 px-6 pb-24 pt-10 justify-center rounded-lg">
+                <div class="flex flex-row justify-end -mt-3 mb-3 ">
+                    <button type="" onclick="closeModal()"
+                        class="h-7 w-7 bg-red-600 rounded-full flex flex-col hover:shadow-lg hover:shadow-red-500 hover:bg-red-500 active:bg-red-600 justify-center text-center text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"
+                            class="fill-current w-5 h-5 mx-auto">
+                            <!--! Font Awesome Pro 6.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                            <path
+                                d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z" />
+                        </svg>
+                    </button>
+                </div>
+                <form action="/user/" method="post" id="nameModal" class="flex flex-col space-y-3 ">
+                    {% csrf_token %}
+
+
+                    <div class="flex flex-col space-y-2 sm:flex-row  sm:space-y-0 sm:space-x-4 w-full justify-center">
+                        <input type="text" placeholder="Name" name="name"
+                            class="rounded-lg db dark:focus:bg-gray-600 bg-gray-200 focus:bg-white  dark:border-[1px] dark:border-gray-600 focus:border-2 focus:border-blue-500 px-5 py-2 w-full sm:w-1/2">
+                        <input type="text" placeholder="Location" name="place"
+                            class="rounded-lg db dark:focus:bg-gray-600 bg-gray-200 focus:bg-white  dark:border-[1px] dark:border-gray-600 focus:border-2 focus:border-blue-500 px-5 py-2 w-full sm:w-1/2 m-0">
+                    </div>
+
+                    <input type="email" placeholder="UserName or Email" name="email"
+                        class="rounded-lg db dark:focus:bg-gray-600 bg-gray-200 focus:bg-white  dark:border-[1px] dark:border-gray-600 focus:border-2 focus:border-blue-500 px-5 py-2 ">
+                    <input type="website" placeholder="Website" name="website"
+                        class="rounded-lg db dark:focus:bg-gray-600 bg-gray-200 focus:bg-white  dark:border-[1px] dark:border-gray-600 focus:border-2 focus:border-blue-500 px-5 py-2 ">
+                    <input type="text" placeholder="Phone Number" pattern="[0-9]{10}" name="phone"
+                        title="Please enter a ten Digit phone Number"
+                        class="rounded-lg db dark:focus:bg-gray-600 bg-gray-200 focus:bg-white  dark:border-[1px] dark:border-gray-600 focus:ring-blue-400 focus:ring-1 px-5 py-2 ">
+
+                    <div class="flex flex-row space-x-2 justify-end">
+                        <button type="reset"
+                            class="w-fit bg-blue-800 text-white hover:bg-blue-500 active:bg-blue-800 rounded-lg px-4 py-2">reset</button>
+                        <button type="submit"
+                            class=" w-fit bg-emerald-800 text-white hover:bg-emerald-500 active:bg-emerald-800 rounded-lg px-4 py-2">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Summary Modal -->
+    <div class="w-full h-[200%] hidden  absolute inset-0 bg-black bg-opacity-70 z-10 " id="sModal">
+
+        <div class="flex flex-row justify-center mt-32">
+
+
+            <div
+                class="window flex flex-col space-y-3 im db dark:border-none bg-white border-2 border-gray-300 px-6 pb-24 pt-10 justify-center rounded-lg">
+
+                <div class="flex flex-row justify-end -mt-3 mb-3 ">
+                    <button type="" onclick="closeModal()"
+                        class="h-7 w-7 bg-red-600 rounded-full flex flex-col hover:shadow-lg hover:shadow-red-500 hover:bg-red-500 active:bg-red-600 justify-center text-center text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"
+                            class="fill-current w-5 h-5 mx-auto">
+                            <!--! Font Awesome Pro 6.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                            <path
+                                d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z" />
+                        </svg>
+                    </button>
+                </div>
+                <form action="/user/" method="post" id="summaryModal">
+
+                    {% csrf_token %}
+
+                    <!-- 
+                <input type="email" placeholder="UserName or Email" name="email"
+                    class="rounded-lg bg-gray-200 focus:bg-white border-none focus:border-2 focus:border-blue-500 px-5 py-2 "> -->
+                    <textarea name="summary" id="summary" cols="30" rows="10"
+                        class="rounded-lg db pl bg-gray-200 border-none focus:border-2 focus:border-blue-500 px-5 py-2 w-full"
+                        placeholder="Enter something About You..."></textarea>
+
+                    <div class="flex flex-row space-x-2 justify-end">
+                        <button type="reset"
+                            class="w-fit bg-blue-800 text-white hover:bg-blue-500 active:bg-blue-800 rounded-lg px-4 py-2">reset</button>
+                        <button onclick="edit()" type="submit"
+                            class=" w-fit bg-emerald-800 text-white hover:bg-emerald-500 active:bg-emerald-800 rounded-lg px-4 py-2">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- experience Modal -->
+    <div class="w-full h-[200%] hidden  absolute inset-0 bg-black bg-opacity-70 z-10 " id="expModal">
+
+        <div class="flex flex-row justify-center mt-32">
+
+
+            <div
+                class="window flex flex-col space-y-3 im db dark:border-none bg-white border-2 border-gray-300 px-6 pb-24 pt-10 justify-center rounded-lg">
+
+                <div class="flex flex-row justify-end -mt-3 mb-3 ">
+                    <button type="" onclick="closeModal()"
+                        class="h-7 w-7 bg-red-600 rounded-full flex flex-col hover:shadow-lg hover:shadow-red-500 hover:bg-red-500 active:bg-red-600 justify-center text-center text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"
+                            class="fill-current w-5 h-5 mx-auto">
+                            <!--! Font Awesome Pro 6.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                            <path
+                                d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z" />
+                        </svg>
+                    </button>
+                </div>
+                <form action="/user/" method="post" id="experienceModal">
+
+                    {% csrf_token %}
+
+                    <!-- 
+                <input type="email" placeholder="UserName or Email" name="email"
+                    class="rounded-lg bg-gray-200 focus:bg-white border-none focus:border-2 focus:border-blue-500 px-5 py-2 "> -->
+                    <textarea name="experience" id="summary" cols="30" rows="10"
+                        class="rounded-lg bg-gray-200 pl db border-none focus:border-2 focus:border-blue-500 px-5 py-2 w-full"
+                        placeholder="Describe your experience..."></textarea>
+
+                    <div class="flex flex-row space-x-2 justify-end">
+                        <button type="reset"
+                            class="w-fit bg-blue-800 text-white hover:bg-blue-500 active:bg-blue-800 rounded-lg px-4 py-2">reset</button>
+                        <button onclick="edit()" type="submit"
+                            class=" w-fit bg-emerald-800 text-white hover:bg-emerald-500 active:bg-emerald-800 rounded-lg px-4 py-2">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- education Modal -->
+    <div class="w-full h-[200%] hidden  absolute inset-0 bg-black bg-opacity-70 z-10 " id="eduModal">
+
+        <div class="flex flex-row justify-center mt-32">
+
+
+            <div
+                class="window flex flex-col space-y-3 im db dark:border-none bg-white border-2 border-gray-300 px-6 pb-24 pt-10 justify-center rounded-lg">
+
+                <div class="flex flex-row justify-end -mt-3 mb-3 ">
+                    <button type="" onclick="closeModal()"
+                        class="h-7 w-7 bg-red-600 rounded-full flex flex-col hover:shadow-lg hover:shadow-red-500 hover:bg-red-500 active:bg-red-600 justify-center text-center text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"
+                            class="fill-current w-5 h-5 mx-auto">
+                            <!--! Font Awesome Pro 6.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                            <path
+                                d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z" />
+                        </svg>
+                    </button>
+                </div>
+                <form action="/user/" method="post" id="educationModal">
+
+                    {% csrf_token %}
+
+
+                    <!-- 
+                <input type="email" placeholder="UserName or Email" name="email"
+                    class="rounded-lg bg-gray-200 focus:bg-white border-none focus:border-2 focus:border-blue-500 px-5 py-2 "> -->
+                    <input type="text" placeholder="Institute name" name="Institute"
+                        class="rounded-lg db dark:focus:bg-gray-600 bg-gray-200 focus:bg-white  dark:border-[1px] dark:border-gray-600 focus:border-2 focus:border-blue-500 px-5 py-2 w-full my-1">
+                    <input type="text" placeholder="degree" name="degree"
+                        class="rounded-lg db dark:focus:bg-gray-600 bg-gray-200 focus:bg-white  dark:border-[1px] dark:border-gray-600 focus:border-2 focus:border-blue-500 px-5 py-2 w-full my-1">
+                    <input type="text" placeholder="Study Duration Ex:2018-2020" name="timePeriod"
+                        class="rounded-lg db dark:focus:bg-gray-600 bg-gray-200 focus:bg-white  dark:border-[1px] dark:border-gray-600 focus:border-2 focus:border-blue-500 px-5 py-2 w-full my-1">
+
+                    <div class="flex flex-row space-x-2 justify-end">
+                        <button type="reset"
+                            class="w-fit bg-blue-800 text-white hover:bg-blue-500 active:bg-blue-800 rounded-lg px-4 py-2">reset</button>
+                        <button onclick="edit()" type="submit"
+                            class=" w-fit bg-emerald-800 text-white hover:bg-emerald-500 active:bg-emerald-800 rounded-lg px-4 py-2">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- landC Modal -->
+    <div class="w-full h-[200%] hidden  absolute inset-0 bg-black bg-opacity-70 z-10 " id="lacModal">
+
+        <div class="flex flex-row justify-center mt-32">
+
+
+            <div
+                class="window flex flex-col space-y-3 im db dark:border-none bg-white border-2 border-gray-300 px-6 pb-24 pt-10 justify-center rounded-lg">
+
+                <div class="flex flex-row justify-end -mt-3 mb-3 ">
+                    <button type="" onclick="closeModal()"
+                        class="h-7 w-7 bg-red-600 rounded-full flex flex-col hover:shadow-lg hover:shadow-red-500 hover:bg-red-500 active:bg-red-600 justify-center text-center text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"
+                            class="fill-current w-5 h-5 mx-auto">
+                            <!--! Font Awesome Pro 6.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                            <path
+                                d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z" />
+                        </svg>
+                    </button>
+                </div>
+                <form action="/user/" method="post" id="landcModal">
+
+                    {% csrf_token %}
+
+                    <!-- 
+                <input type="email" placeholder="UserName or Email" name="email"
+                    class="rounded-lg bg-gray-200 focus:bg-white border-none focus:border-2 focus:border-blue-500 px-5 py-2 "> -->
+                    <input type="text" placeholder="Certificate name" name="Certificate_name"
+                        class="rounded-lg db dark:focus:bg-gray-600 bg-gray-200 focus:bg-white  dark:border-[1px] dark:border-gray-600 focus:border-2 focus:border-blue-500 px-5 py-2 w-full my-1">
+                    <textarea type="text" placeholder="Description" name="Certificate_desc" cols="30" rows="10"
+                        class="rounded-lg db dark:focus:bg-gray-600 bg-gray-200 focus:bg-white  dark:border-[1px] dark:border-gray-600 focus:border-2 focus:border-blue-500 px-5 py-2 w-full my-1"></textarea>
+
+                    <div class="flex flex-row space-x-2 justify-end">
+                        <button type="reset"
+                            class="w-fit bg-blue-800 text-white hover:bg-blue-500 active:bg-blue-800 rounded-lg px-4 py-2">reset</button>
+                        <button onclick="edit()" type="submit"
+                            class=" w-fit bg-emerald-800 text-white hover:bg-emerald-500 active:bg-emerald-800 rounded-lg px-4 py-2">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Skills Modal -->
+    <div class="w-full h-[200%] hidden  absolute inset-0 bg-black bg-opacity-70 z-10 " id="skiModal">
+
+        <div class="flex flex-row justify-center mt-32">
+
+
+            <div
+                class="window flex flex-col space-y-3 im db dark:border-none bg-white border-2 border-gray-300 px-6 pb-24 pt-10 justify-center rounded-lg">
+
+                <div class="flex flex-row justify-end -mt-3 mb-3 ">
+                    <button type="" onclick="closeModal()"
+                        class="h-7 w-7 bg-red-600 rounded-full flex flex-col hover:shadow-lg hover:shadow-red-500 hover:bg-red-500 active:bg-red-600 justify-center text-center text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"
+                            class="fill-current w-5 h-5 mx-auto">
+                            <!--! Font Awesome Pro 6.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                            <path
+                                d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z" />
+                        </svg>
+                    </button>
+                </div>
+                <form action="/user/" method="post" id="skillModal">
+                    {% csrf_token%}
+
+
+                    <!-- 
+                <input type="email" placeholder="UserName or Email" name="email"
+                    class="rounded-lg bg-gray-200 focus:bg-white border-none focus:border-2 focus:border-blue-500 px-5 py-2 "> -->
+                    <p class="mb-3 font-semibold text-gray-700">Add you skills seperated by comma(,) :</p>
+                    <textarea type="text" title="Language worked with" placeholder="Database worked with" name="Database_worked_with" cols="30" rows="3" id="skills_name"
+                        class="rounded-lg db dark:focus:bg-gray-600 bg-gray-200 focus:bg-white  dark:border-[1px] dark:border-gray-600 focus:border-2 focus:border-blue-500 px-5 py-2 w-full"></textarea>
+                    <p class="mb-3 font-semibold text-gray-700">Add you skills seperated by comma(,) :</p>
+                    <textarea type="text" title="Add you skills seperated by comma(,)" placeholder="Language worked with" name="Language_worked_with" cols="30" rows="3" id="skills_name"
+                        class="rounded-lg db dark:focus:bg-gray-600 bg-gray-200 focus:bg-white  dark:border-[1px] dark:border-gray-600 focus:border-2 focus:border-blue-500 px-5 py-2 w-full"></textarea>
+                    <p class="mb-3 font-semibold text-gray-700">Add you skills seperated by comma(,) :</p>
+                    <textarea type="text" title="Add you skills seperated by comma(,)" placeholder="collabtools" name="collab_tools" cols="30" rows="3" id="skills_name"
+                        class="rounded-lg db dark:focus:bg-gray-600 bg-gray-200 focus:bg-white  dark:border-[1px] dark:border-gray-600 focus:border-2 focus:border-blue-500 px-5 py-2 w-full"></textarea>
+                    <p class="mb-3 font-semibold text-gray-700">Add you skills seperated by comma(,) :</p>
+                    <textarea type="text" title="Add you skills seperated by comma(,)" placeholder="Operating Systems worked with" name="OpSys" cols="30" rows="3" id="skills_name"
+                        class="rounded-lg db dark:focus:bg-gray-600 bg-gray-200 focus:bg-white  dark:border-[1px] dark:border-gray-600 focus:border-2 focus:border-blue-500 px-5 py-2 w-full"></textarea>
+                    <p class="mb-3 font-semibold text-gray-700">Add you skills seperated by comma(,) :</p>
+                    <textarea type="text" title="Add you skills seperated by comma(,)" placeholder="Plateform worked with" name="Plateform_worked_with" cols="30" rows="3" id="skills_name"
+                        class="rounded-lg db dark:focus:bg-gray-600 bg-gray-200 focus:bg-white  dark:border-[1px] dark:border-gray-600 focus:border-2 focus:border-blue-500 px-5 py-2 w-full"></textarea>
+                    
+
+                    <div class="flex flex-row space-x-2 justify-end">
+                        <button type="reset"
+                            class="w-fit bg-blue-800 text-white hover:bg-blue-500 active:bg-blue-800 rounded-lg px-4 py-2">reset</button>
+                        <button onclick="edit()" type="submit"
+                            class=" w-fit bg-emerald-800 text-white hover:bg-emerald-500 active:bg-emerald-800 rounded-lg px-4 py-2">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- honor and Reward Modal -->
+    <div class="w-full h-[200%] hidden  absolute inset-0 bg-black bg-opacity-70 z-10 " id="harModal">
+
+        <div class="flex flex-row justify-center mt-32">
+
+
+            <div
+                class="window flex flex-col space-y-3 im db dark:border-none bg-white border-2 border-gray-300 px-6 pb-24 pt-10 justify-center rounded-lg">
+
+                <div class="flex flex-row justify-end -mt-3 mb-3 ">
+                    <button type="" onclick="closeModal()"
+                        class="h-7 w-7 bg-red-600 rounded-full flex flex-col hover:shadow-lg hover:shadow-red-500 hover:bg-red-500 active:bg-red-600 justify-center text-center text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"
+                            class="fill-current w-5 h-5 mx-auto">
+                            <!--! Font Awesome Pro 6.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                            <path
+                                d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z" />
+                        </svg>
+                    </button>
+                </div>
+                <form action="/user/" method="post" id="handrModal">
+
+                    {% csrf_token %}
+
+                    <!-- 
+                <input type="email" placeholder="UserName or Email" name="email"
+                    class="rounded-lg bg-gray-200 focus:bg-white border-none focus:border-2 focus:border-blue-500 px-5 py-2 "> -->
+                    <input type="text" placeholder="Honor Or Reward name" name="honor_or_reward"
+                        class="rounded-lg db dark:focus:bg-gray-600 bg-gray-200 focus:bg-white  dark:border-[1px] dark:border-gray-600 focus:border-2 focus:border-blue-500 px-5 py-2 ">
+                    <input type="text" placeholder="Description" name="honor_or_reward_desc"
+                        class="rounded-lg db dark:focus:bg-gray-600 bg-gray-200 focus:bg-white  dark:border-[1px] dark:border-gray-600 focus:border-2 focus:border-blue-500 px-5 py-2 ">
+                   
+
+                    <div class="flex flex-row space-x-2 justify-end">
+                        <button type="reset"
+                            class="w-fit bg-blue-800 text-white hover:bg-blue-500 active:bg-blue-800 rounded-lg px-4 py-2">reset</button>
+                        <button onclick="edit()" type="submit"
+                            class=" w-fit bg-emerald-800 text-white hover:bg-emerald-500 active:bg-emerald-800 rounded-lg px-4 py-2">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+     <!-- footer -->
+     <div class="flex flex-row justify-center mx-auto text-sm dark:text-gray-500 relative bottom-0 my-10">
+        <span>Copyright© WinkedIn 2021-2022</span>
+    </div>
+    <!-- footer -->
+    <script>
+         if(localStorage.theme==null){
+                localStorage.theme = 'light'
+              }
+
+
+
+        nameModalSwitch = () => {
+            var name = document.getElementById('name').innerHTML;
+            var place = document.getElementById('place').innerHTML;
+            var email = document.getElementById('email').innerHTML;
+            var phone = document.getElementById('phone').innerHTML;
+            var summary = document.getElementById('summary').innerHTML;
+            var website = document.getElementById('website').innerHTML;
+            // modal window is nModal
+            modalWindow = document.getElementById('nModal');
+            // modal Form Has the id nameModal
+            var formModal = document.getElementById('nameModal');
+            modalWindow.classList.toggle('hidden');
+            formModal.getElementsByTagName('input')[1].value = name;
+            formModal.getElementsByTagName('input')[2].value = place;
+            formModal.getElementsByTagName('input')[3].value = email;
+            formModal.getElementsByTagName('input')[4].value = website;
+            // console.log(nameModal);
+        }
+
+        
+        mode = () => {
+            // let theme=localStorage.theme
+
+            // document.documentElement.classList.toggle('dark')
+            if( localStorage.theme == 'light'){
+                
+                localStorage.theme = 'dark'
+
+            }
+                
+            else if(localStorage.theme == 'dark' ){
+
+                localStorage.theme = 'light'
+
+            }
+        hhh()
+            
+        
+        }
+        // this function is for setting the dark mode according to theme saved in the local storage
+        // we can manually change the mode saved in localsta
+        function hhh(){
+            if (localStorage.theme === 'dark') {
+        document.documentElement.classList.add('dark')
+        } else {
+        document.documentElement.classList.remove('dark')
+        } 
+        }
+
+        hhh();
+
+
+        summaryModalSwitch = () => {
+
+            // modal window is nModal made it as global variable so that we can access it anywhere in any function
+            modalWindow = document.getElementById('sModal');
+            // modal Form Has the id nameModal
+            var formModal = document.getElementById('summaryModal');
+
+            modalWindow.classList.toggle('hidden');
+            // formModal.getElementsByTagName('textarea')[0].value = summary;
+
+            // console.log(nameModal);
+        }
+        experienceModalSwitch = () => {
+
+            // modal window is nModal
+            modalWindow = document.getElementById('expModal');
+            // modal Form Has the id nameModal
+            var formModal = document.getElementById('experienceModal');
+
+            modalWindow.classList.toggle('hidden');
+            // formModal.getElementsByTagName('textarea')[0].value = summary;
+
+            // console.log(nameModal);
+        }
+        educationModalSwitch = () => {
+
+            // modal window is nModal
+            modalWindow = document.getElementById('eduModal');
+            // modal Form Has the id nameModal
+            var formModal = document.getElementById('educationModal');
+
+            modalWindow.classList.toggle('hidden');
+            // formModal.getElementsByTagName('textarea')[0].value = summary;
+
+            // console.log(nameModal);
+        }
+        licenseModalSwitch = () => {
+
+            // modal window is nModal
+            modalWindow = document.getElementById('lacModal');
+            // modal Form Has the id nameModal
+            var formModal = document.getElementById('landcModal');
+            var certificate_name = document.getElementById('license').getElementsByTagName('div')[0].innerHTML;
+            var certificate_desc = document.getElementById('license').getElementsByTagName('div')[1].innerHTML;
+
+            modalWindow.classList.toggle('hidden');
+            formModal.getElementsByTagName('input')[0].value = certificate_name;
+            formModal.getElementsByTagName('textarea')[0].value = certificate_desc;
+
+            // console.log(nameModal);
+        }
+        skillModalSwitch = () => {
+
+            // modal window is nModal
+            modalWindow = document.getElementById('skiModal');
+            // modal Form Has the id nameModal
+            var formModal = document.getElementById('skillModal');
+            // we have to take the skills in the form of an array 
+            var Database_worked_with=document.getElementById('dbww');
+            var Language_worked_with=document.getElementById('lww');
+            var collab_tools=document.getElementById('ct');
+            var opsys=document.getElementById('opsys');
+            var Plateform_worked_with=document.getElementById('pww');
+            var skill=new Array();
+            // here we are displaying the data of the skills section in modal
+                    value=(field,index)=>{
+                        for(var i=0;field.getElementsByTagName('p')[i]!=null;i++){
+                        skill[i]=field.getElementsByTagName('p')[i].innerHTML;
+                    }
+                    var skill_str=skill.join(',');
+                    console.log(skill_str);
+                    formModal.getElementsByTagName('textarea')[index].value=skill_str;
+                    }
+
+                    value(Database_worked_with,0)
+                    value(Language_worked_with,1)
+                    value(collab_tools,2)
+                    value(opsys,3)
+                    value(Plateform_worked_with,4)
+            // console.log(skill);// this is an array which has all the skills 
+            
+
+            modalWindow.classList.toggle('hidden');
+           
+        }
+        honorModalSwitch = () => {
+
+            // modal window is nModal
+            modalWindow = document.getElementById('harModal');
+            // modal Form Has the id nameModal
+            var formModal = document.getElementById('handrModal');
+
+            modalWindow.classList.toggle('hidden');
+            // formModal.getElementsByTagName('textarea')[0].value = summary;
+
+            // console.log(nameModal);
+        }
+        closeMenu=()=>{
+           // modal window is nModal
+           
+           document.getElementById('phone_menu').classList.toggle('-translate-x-[30rem]')
+
+        }
+
+        closeModal = () => {
+            modalWindow.classList.add('hidden');
+            // document.getElementById('sModal').classList.toggle('hidden');
+
+
+
+        }
+        // onclicking on user photo it will be open in full form
+        photo=()=>{
+            
+            var pic=document.getElementById('user_photo');
+            pic.classList.add('absolute')
+            pic.classList.add('inset-0')
+            pic.classList.add('z-10')
+            pic.classList.add('bg-black')
+            pic.classList.add('bg-opacity-90')
+            pic.classList.add('w-screen')
+            pic.classList.add('h-screen')
+            
+            
+
+        }
+        photoClose=()=>{
+            var pic=document.getElementById('user_photo');
+            pic.classList.remove('absolute')
+            pic.classList.remove('inset-0')
+            pic.classList.remove('z-10')
+            pic.classList.remove('bg-black')
+            pic.classList.remove('bg-opacity-90')
+            pic.classList.remove('w-screen')
+            pic.classList.remove('h-screen')
+            console.log("Close photo is working");
+        }
+
+        
+        window.onload = function () {
+            document.getElementById('imageId').style.display = 'none';
+        };
+    </script>
+    <script src="index.js"></script>
+</body>
+
+</html>

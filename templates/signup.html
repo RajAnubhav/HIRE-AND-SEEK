@@ -1,0 +1,921 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/assets/input.css">
+    <title>Hire and Seek</title>
+</head>
+
+<body class="bg-[#f3f2ef] dark:bg-black">
+    <div class="nav flex flex-row space-x-2 justify-center py-5 cursor-pointer " onclick="window.location='/'">
+        <span class="logo flex flex-col justify-center"><img src="/static/image/linkedin_logo.png" alt="logo"
+            style="margin-right: 5px;height: 50px;width: 70px;"onclick="window.location='/'"></span>
+        <span class="txt text-4xl font-bold dt">Hire and Seek</span>
+    </div>
+
+    
+
+    <!-- SignUp First Page -->
+    <div class="w-full ">
+        <div class="flex flex-row justify-center">
+            <p class="text-xl font font-semibold px-4 py-2 mt-6 dtl">Your Profile makes you able to discover more peoples and
+                opportunities</p>
+        </div>
+    <div class="firstPage form flex flex-row justify-center w-full mt-5 py-3 ">
+
+        <form action="/signup/?q=intrest" method="post"
+            class="w-[80%] md:w-[50%]   ">
+            {% csrf_token %}
+            <div id="firstPage"  class="signup_modal">
+                <div class="style flex flex-col db dt dbr border-2 space-y-3  rounded-lg  border-gray-300  bg-white px-6 pb-24 pt-10 justify-center">
+                    <div class="flex flex-row space-x-4 w-full justify-center">
+                        <input required type="text" name="firstname" placeholder="First Name"
+                            class="rounded-lg bg-gray-200    db dt dbr focus:border-2 focus:border-blue-500 px-5 py-2 w-1/2">
+                        <input required type="text" name="lastname" placeholder="Last Name"
+                            class="rounded-lg bg-gray-200    db dt dbr focus:border-2 focus:border-blue-500 px-5 py-2 w-1/2 ">
+                    </div>
+                    <input required type="text" id="email" name="email" placeholder="Your Email"
+                        class="rounded-lg bg-gray-200    db dt dbr focus:border-2 focus:border-blue-500 px-5 py-2 ">
+                    <input required type="text"  id="confemail" name="confemail" placeholder="Confirm your email"
+                        class="rounded-lg bg-gray-200    db dt dbr focus:border-2 focus:border-blue-500 px-5 py-2 ">
+                    <input required type="password" id="password" name="password" placeholder="Password"
+                        class="rounded-lg bg-gray-200    db dt dbr focus:ring-blue-400 focus:ring-1 px-5 py-2 ">
+                    <input required type="password" id="confpassword" name="confpassword" placeholder="Confirm your Password"
+                        class="rounded-lg bg-gray-200    db dt dbr focus:border-2 focus:border-blue-500 px-5 py-2 ">
+                    <div class="flex flex-row justify-around">
+                        <div class="w-[70%]"></div>
+                        <div class="flex flex-row space-x-1">
+                            <button type="reset"
+                            class="mx-auto bg-red-800 text-white hover:bg-red-500 active:bg-red-800 rounded-lg px-4 py-2">reset</button>
+                        <div onclick="sgnup()"
+                            class="mx-auto bg-blue-800 text-white hover:bg-blue-500 active:bg-blue-800 rounded-lg px-4 py-2 cursor-pointer"><a>Education</a></div>
+                        </div>
+                        
+                    </div>
+                    <!-- <a href="/login.html?q=forget_password" class="text-sm text-gray-500 text-center">Forget Password</a> -->
+                    <a href="/login/" class="text-sm text-blue-500 text-center">Already a member?Login</a>
+        
+                </div>
+                </div>
+            <div id="educationPage" class="education_modal hidden">
+                <div class="style  flex flex-col db dt dbr border-2 space-y-3  rounded-lg  border-gray-300  bg-white px-6 pb-24 pt-10 justify-center ">
+                    <input required type="text" name="college" placeholder="School or Colleges/University" list="colleges"
+                    class="rounded-lg db dt bg-gray-200 dbr  db dt dbr focus:border-2 focus:border-blue-500 px-5 py-2 ">
+    
+                <datalist id="colleges">
+                   
+    <option>Siddaganga Institute of Technology Tumkuru</option>
+    <option>Indian Institute of Science Bangalore</option>
+    <option>Jawaharlal Nehru University</option>
+    <option>Banaras Hindu University</option>
+    <option>Jawaharlal Nehru Centre for Advanced Scientific Research</option>
+    <option>Jadavpur University</option>
+    <option>Anna University</option>
+    <option>University of Hyderabad</option>
+    <option>University of Delhi</option>
+    <option>Amrita Vishwa Vidyapeetham</option>
+    <option>Savitribai Phule Pune University</option>
+    <option>Aligarh Muslim University</option>
+    <option>Jamia Millia Islamia</option>
+    <option>Birla Institute of Technology & Science -Pilani</option>
+    <option>Vellore Institute of Technology</option>
+    <option>Indian Agricultural Research Institute</option>
+    <option>Calcutta University</option>
+    <option>Tamil Nadu Agricultural University</option>
+    <option>Manipal Academy of Higher Education-Manipal</option>
+    <option>Visva Bharati</option>
+    <option>Siksha`O` Anusandhan University</option>
+    <option>Homi Bhabha National Institute</option>
+    <option>Bharath Institute of Higher Education & Research</option>
+    <option>Osmania University</option>
+    <option>Punjab Agricultural University, Ludhiana</option>
+    <option>Institute of Chemical Technology</option>
+    <option>Jamia Hamdard</option>
+    <option>Gauhati University</option>
+    <option>Bharathiar University</option>
+    <option>Kerala University</option>
+    <option>Tezpur University</option>
+    <option>TATA Institute of Social Sciences</option>
+    <option>Shanmugha Arts Science Technology & Research Academy (SASTRA)</option>
+    <option>Panjab University</option>
+    <option>S.R.M Institute of Science and Technology</option>
+    <option>Indian Institute of Space Science and Technology</option>
+    <option>Mysore University</option>
+    <option>Pondicherry University</option>
+    <option>Tamil Nadu Veterinary & Animal Sciences University</option>
+    <option>Sri Ramachandra University</option>
+    <option>Anand Agricultural University</option>
+    <option>University of Madras</option>
+    <option>Sri Venkateswara University</option>
+    <option>Andhra University</option>
+    <option>Sathyabama Institute of Science and Technology</option>
+    <option>Jagadguru Sri Shivarathreeshwara University</option>
+    <option>Thapar University</option>
+    <option>Dr. D. Y. Patil Vidyapeeth Pune</option>
+    <option>North Eastern Hill University</option>
+    <option>Kalinga Institute of Industrial Technology</option>
+    <option>Guru Angad Dev Veterinary & Animal Sciences University</option>
+    <option>Dr. Y.S.Parmar University of Horticulture & Forestry</option>
+    <option>AMITY University</option>
+    <option>Banasthali Vidyapith</option>
+    <option>Bharati Vidyapeeth</option>
+    <option>Saveetha Institute of Medical and Technical Sciences</option>
+    <option>Annamalai University</option>
+    <option>Calicut University</option>
+    <option>Mizoram University</option>
+    <option>Kurukshetra University</option>
+    <option>Shiv Nadar University</option>
+    <option>Symbiosis International University</option>
+    <option>KLE Academy of Higher Education and Research</option>
+    <option>University of Jammu</option>
+    <option>Goa University-Goa</option>
+    <option>Vel Tech Rangarajan Dr.Sagunthala R&D Institute of Science and Technology</option>
+    <option>Kalyani University</option>
+    <option>Mahatma Gandhi Unversity</option>
+    <option>Rajasthan University of Veterinary & Animal Sciences</option>
+    <option>Sri Sathya Sai Institute of Higher Learning</option>
+    <option>Meenakshi Academy of Higher Education and Research</option>
+    <option>Karunya Institute of Technology and Sciences-Coimbatore</option>
+    <option>Dayalbagh Educational Institute</option>
+    <option>University of Kashmir</option>
+    <option>Dibrugarh University</option>
+    <option>Nirma University</option>
+    <option>Rajiv Gandhi University</option>
+    <option>Madurai Kamraj University</option>
+    <option>Sri Venkateswara Veterinary University</option>
+    <option>Rajasthan University</option>
+    <option>Guru Nanak Dev University</option>
+    <option>Jaypee Institute of Information Technology</option>
+    <option>Guru Gobind Singh Indraprastha University</option>
+    <option>Sri Balaji Vidyapeeth Mahatma Gandhi Medical College Campus</option>
+    <option>NITTE University</option>
+    <option>Periyar University</option>
+    <option>Cochin University of Science and Technology</option>
+    <option>Vidyasagar University</option>
+    <option>Bharathidasan University</option>
+    <option>Gandhi Institute of Technology and Management (GITAM)</option>
+    <option>Karpagam Academy of Higher Education</option>
+    <option>The Gandhigram Rural Institute - Deemed University</option>
+    <option>Assam University-Silchar</option>
+    <option>Jaypee University of Information Technology-Solan</option>
+    <option>PES University</option>
+    <option>University of Allahabad</option>
+    <option>Sri Krishnadevaraya University</option>
+    <option>Alagappa University</option>
+    <option>Narsee Monjee Institute of Management Studies -Mumbai</option>
+    <option>Jawaharlal Nehru Technological University</option>
+    <option>B.S. Abdur Rahman Institute of Science and Technology</option>
+    <option>Indian Institute of Science</option>
+    <option>Jawaharlal Nehru University</option>
+    <option>Banaras Hindu University</option>
+    <option>Anna University</option>
+    <option>University of Hyderabad</option>
+    <option>Jadavpur University</option>
+    <option>University of Delhi</option>
+    <option>Amrita Vishwa Vidyapeetham</option>
+    <option>Savitribai Phule Pune University</option>
+    <option>Aligarh Muslim University</option>
+    <option>Manipal Academy of Higher Education</option>
+    <option>Jamia Millia Islamia</option>
+    <option>Bharathiar University</option>
+    <option>Calcutta University</option>
+    <option>King George`s Medical University</option>
+    <option>Vellore Institute of Technology</option>
+    <option>Birla Institute of Technology & Science</option>
+    <option>University of Madras</option>
+    <option>Institute of Chemical Technology</option>
+    <option>Panjab University</option>
+    <option>Bharath Institute of Higher Education & Research</option>
+    <option>Andhra University</option>
+    <option>Jamia Hamdard</option>
+    <option>Siksha `O` Anusandhan</option>
+    <option>Tamil Nadu Agricultural University</option>
+    <option>Homi Bhabha National Institute</option>
+    <option>Alagappa University</option>
+    <option>Osmania University</option>
+    <option>Tezpur University</option>
+    <option>Kerala University</option>
+    <option>Visva Bharati</option>
+    <option>Tata Institute of Social Sciences</option>
+    <option>Thapar Institute of Engineering and Technology</option>
+    <option>G. B. Pant Universtiy of Agriculture and Technology</option>
+    <option>Mahatma Gandhi University</option>
+    <option>Shanmugha Arts Science Technology & Research Academy</option>
+    <option>JSS Academy of Higher Education and Research</option>
+    <option>Punjab Agricultural University</option>
+    <option>Gauhati University</option>
+    <option>Sri Ramachandra Medical College and Research Institute</option>
+    <option>SRM Institute of Science and Technology</option>
+    <option>Kalinga Institute of Industrial Technology</option>
+    <option>Birla Institute of Technology</option>
+    <option>Symbiosis International</option>
+    <option>Sathyabama Institute of Science and Technology</option>
+    <option>Saveetha Institute of Medical and Technical Sciences</option>
+    <option>University of Kashmir</option>
+    <option>Shiv Nadar University</option>
+    <option>Sri Venkateswara University</option>
+    <option>Chaudhary Charan Singh Haryana Agricultural University</option>
+    <option>University of Jammu</option>
+    <option>Dr. D. Y. Patil Vidyapeeth</option>
+    <option>Amity University</option>
+    <option>Madurai Kamraj University</option>
+    <option>SVKM`s Narsee Monjee Institute of Management Studies</option>
+    <option>Koneru Lakshmaiah Education Foundation University</option>
+    <option>KLE Academy of Higher Education and Research</option>
+    <option>University of Agricultural Sciences</option>
+    <option>Pondicherry University</option>
+    <option>Guru Nanak Dev University</option>
+    <option>North Eastern Hill University</option>
+    <option>Sri Venkateswara Institute of Medical Sciences</option>
+    <option>Dayalbagh Educational Institute</option>
+    <option>Banasthali Vidyapith</option>
+    <option>Tamil Nadu Veterinary & Animal Sciences University</option>
+    <option>Bharati Vidyapeeth</option>
+    <option>Bharathidasan University</option>
+    <option>Goa University</option>
+    <option>Cochin University of Science and Technology</option>
+    <option>Delhi Technological University</option>
+    <option>Dr. Y. S. Parmar University of Horticulture and Forestry</option>
+    <option>Sri Balaji Vidyapeeth Mahatma Gandhi Medical College Campus</option>
+    <option>Calicut University</option>
+    <option>Guru Gobind Singh Indraprastha University</option>
+    <option>Bidhan Chandra Krishi Vishwavidyalaya</option>
+    <option>Maharshi Dayanand University</option>
+    <option>NITTE</option>
+    <option>Kuvempu University</option>
+    <option>The Gandhigram Rural Institute</option>
+    <option>Kurukshetra University</option>
+    <option>Mizoram University</option>
+    <option>Professor Jayashankar Telangana State Agricultural University</option>
+    <option>Anand Agricultural University</option>
+    <option>Dibrugarh University</option>
+    <option>Gandhi Institute of Technology and Management</option>
+    <option>Kalyani University</option>
+    <option>Assam University</option>
+    <option>Meenakshi Academy of Higher Education and Research</option>
+    <option>Karunya Institute of Technology and Sciences</option>
+    <option>Periyar University</option>
+    <option>Orissa University of Agriculture & Technology</option>
+    <option>Yenepoya</option>
+    <option>Sri Sathya Sai Institute of Higher Learning</option>
+    <option>Nirma University</option>
+    <option>Nagaland University</option>
+    <option>The University of Burdwan</option>
+    <option>D. Y. Patil Educational Society</option>
+    <option>International Institute of Information Technology</option>
+    <option>PES University</option>
+    <option>Jaypee Institute of Information Technology</option>
+    <option>Indian Institute of Science</option>
+    <option>Jawaharlal Nehru University</option>
+    <option>Banaras Hindu University</option>
+    <option>University of Hyderabad</option>
+    <option>Calcutta University</option>
+    <option>Jadavpur University</option>
+    <option>Anna University</option>
+    <option>Amrita Vishwa Vidyapeetham</option>
+    <option>Manipal Academy of Higher Education</option>
+    <option>Savitribai Phule Pune University</option>
+    <option>Aligarh Muslim University</option>
+    <option>Jamia Millia Islamia</option>
+    <option>University of Delhi</option>
+    <option>Bharathiar University</option>
+    <option>Institute of Chemical Technology</option>
+    <option>Andhra University</option>
+    <option>Homi Bhabha National Institute</option>
+    <option>Jamia Hamdard</option>
+    <option>Vellore Institute of Technology</option>
+    <option>University of Madras</option>
+    <option>Panjab University</option>
+    <option>Kerala University</option>
+    <option>Birla Institute of Technology & Science</option>
+    <option>Siksha `O` Anusandhan</option>
+    <option>King George`s Medical University</option>
+    <option>Osmania University</option>
+    <option>Thapar Institute of Engineering and Technology (Deemed-to-be-university)</option>
+    <option>Alagappa University</option>
+    <option>Tezpur University</option>
+    <option>Mahatma Gandhi University</option>
+    <option>Kalinga Institute of Industrial Technology</option>
+    <option>SRM Institute of Science and Technology</option>
+    <option>Sri Ramachandra Institute of Higher Education and Research</option>
+    <option>JSS Academy of Higher Education and Research</option>
+    <option>Tata Institute of Social Sciences</option>
+    <option>Bharath Institute of Higher Education & Research</option>
+    <option>Visva Bharati</option>
+    <option>G. B. Pant Universtiy of Agriculture and Technology</option>
+    <option>North Eastern Hill University</option>
+    <option>Shanmugha Arts Science Technology & Research Academy</option>
+    <option>Sathyabama Institute of Science and Technology</option>
+    <option>Gauhati University</option>
+    <option>Saveetha Institute of Medical and Technical Sciences</option>
+    <option>Tamil Nadu Agricultural University</option>
+    <option>Madurai Kamraj University</option>
+    <option>Dr. D. Y. Patil Vidyapeeth</option>
+    <option>Delhi Technological University</option>
+    <option>Pondicherry University</option>
+    <option>Sri Venkateswara University</option>
+    <option>Koneru Lakshmaiah Education Foundation University (K L College of Engineering)</option>
+    <option>Punjab Agricultural University</option>
+    <option>Shiv Nadar University</option>
+    <option>University of Kashmir</option>
+    <option>Mysore University</option>
+    <option>Guru Nanak Dev University</option>
+    <option>Symbiosis International</option>
+    <option>SVKM`s Narsee Monjee Institute of Management Studies</option>
+    <option>Amity University</option>
+    <option>Birla Institute of Technology</option>
+    <option>Bharathidasan University</option>
+    <option>Banasthali Vidyapith</option>
+    <option>Bharati Vidyapeeth</option>
+    <option>Chaudhary Charan Singh Haryana Agricultural University</option>
+    <option>Calicut University</option>
+    <option>Cochin University of Science and Technology</option>
+    <option>Guru Gobind Singh Indraprastha University</option>
+    <option>Anand Agricultural University</option>
+    <option>Periyar University</option>
+    <option>KLE Academy of Higher Education and Research</option>
+    <option>NITTE</option>
+    <option>Tamil Nadu Veterinary & Animal Sciences University</option>
+    <option>Sri Balaji Vidyapeeth Mahatma Gandhi Medical College Campus</option>
+    <option>Kuvempu University</option>
+    <option>University of Jammu</option>
+    <option>The Gandhigram Rural Institute</option>
+    <option>Mizoram University</option>
+    <option>Dayalbagh Educational Institute</option>
+    <option>Sri Venkateswara Institute of Medical Sciences</option>
+    <option>Professor Jayashankar Telangana State Agricultural University</option>
+    <option>Dr. Y. S. Parmar University of Horticulture and Forestry</option>
+    <option>Mumbai University</option>
+    <option>International Institute of Information Technology Hyderabad</option>
+    <option>University of Agricultural Sciences</option>
+    <option>Gandhi Institute of Technology and Management</option>
+    <option>Dr. Babasaheb Ambedkar Marathwada University</option>
+    <option>Dibrugarh University</option>
+    <option>Mangalore University</option>
+    <option>Padmashree Dr. D. Y. Patil Vidyapeeth</option>
+    <option>The University of Burdwan</option>
+    <option>Maharshi Dayanand University</option>
+    <option>Kalyani University</option>
+    <option>Karunya Institute of Technology and Sciences</option>
+    <option>Manonmaniam Sundaranar University</option>
+    <option>Goa University</option>
+    <option>Yenepoya</option>
+    <option>Central University of Punjab</option>
+    <option>Assam University</option>
+    <option>Kurukshetra University</option>
+    <option>Rajiv Gandhi University</option>
+    <option>Meenakshi Academy of Higher Education and Research</option>
+    <option>Indian Institute of Science</option>
+    <option>Jawaharlal Nehru University</option>
+    <option>Banaras Hindu University</option>
+    <option>Amrita Vishwa Vidyapeetham</option>
+    <option>Jadavpur University</option>
+    <option>University of Hyderabad</option>
+    <option>Calcutta University</option>
+    <option>Manipal Academy of Higher Education</option>
+    <option>Savitribai Phule Pune University</option>
+    <option>Jamia Millia Islamia</option>
+    <option>University of Delhi</option>
+    <option>Anna University</option>
+    <option>Bharathiar University</option>
+    <option>Homi Bhabha National Institute</option>
+    <option>Birla Institute of Technology & Science</option>
+    <option>Vellore Institute of Technology</option>
+    <option>Aligarh Muslim University</option>
+    <option>Institute of Chemical Technology</option>
+    <option>Andhra University</option>
+    <option>Siksha `O` Anusandhan</option>
+    <option>Jamia Hamdard</option>
+    <option>University of Madras</option>
+    <option>Kerala University</option>
+    <option>Kalinga Institute of Industrial Technology</option>
+    <option>Shanmugha Arts Science Technology & Research Academy</option>
+    <option>Panjab University</option>
+    <option>Mysore University</option>
+    <option>Sri Ramachandra Institute of Higher Education And Research</option>
+    <option>Osmania University</option>
+    <option>Mahatma Gandhi University</option>
+    <option>Thapar Institute of Engineering & Technology</option>
+    <option>King George`s Medical University</option>
+    <option>JSS Academy of Higher Education and Research</option>
+    <option>Tata Institute of Social Sciences</option>
+    <option>S. R. M. Institute of Science and Technology</option>
+    <option>Alagappa University</option>
+    <option>Amity University Noida</option>
+    <option>Sri Venkateswara University</option>
+    <option>Sathyabama Institute of Science and Technology</option>
+    <option>Tezpur University</option>
+    <option>Koneru Lakshmaiah Education Foundation University</option>
+    <option>Saveetha Institute of Medical and Technical Sciences</option>
+    <option>Symbiosis International</option>
+    <option>Gujarat University</option>
+    <option>Delhi Technological University</option>
+    <option>Dr. D. Y. Patil Vidyapeeth</option>
+    <option>Gauhati University</option>
+    <option>University of Kashmir</option>
+    <option>North Eastern Hill University</option>
+    <option>Visva Bharati</option>
+    <option>Guru Nanak Dev University</option>
+    <option>University of Jammu</option>
+    <option>Bharathidasan University</option>
+    <option>Calicut University</option>
+    <option>Banasthali Vidyapith</option>
+    <option>Shiv Nadar University</option>
+    <option>SVKM`s Narsee Monjee Institute of Management Studies</option>
+    <option>Pondicherry University</option>
+    <option>Bharath Institute of Higher Education & Research</option>
+    <option>Madurai Kamaraj University</option>
+    <option>Datta Meghe Institute of Medical Sciences</option>
+    <option>Cochin University of Science and Technology</option>
+    <option>Bharati Vidyapeeth</option>
+    <option>Punjabi University</option>
+    <option>Mumbai University</option>
+    <option>Birla Institute of Technology</option>
+    <option>Mizoram University</option>
+    <option>Bangalore University</option>
+    <option>Dr. Babasaheb Ambedkar Marathwada University</option>
+    <option>KLE Academy of Higher Education and Research</option>
+    <option>Gandhi Institute of Technology and Management</option>
+    <option>Kalasalingam Academy of Research and Higher Education</option>
+    <option>Kuvempu University</option>
+    <option>NITTE</option>
+    <option>Sri Sathya Sai Institute of Higher Learning</option>
+    <option>Maharshi Dayanand University</option>
+    <option>Padmashree Dr. D. Y. Patil Vidyapeeth</option>
+    <option>Lovely Professional University</option>
+    <option>International Institute of Information Technology Hyderabad</option>
+    <option>Visvesvaraya Technological University</option>
+    <option>Goa University</option>
+    <option>Dayalbagh Educational Institute</option>
+    <option>Periyar University</option>
+    <option>Dibrugarh University</option>
+    <option>Jain University</option>
+    <option>Yenepoya University</option>
+    <option>Central University of Punjab</option>
+    <option>Sri Balaji Vidyapeeth Mahatma Gandhi Medical College Campus</option>
+    <option>Kalyani University</option>
+    <option>Krishna Institute of Medical Sciences</option>
+    <option>The Gandhigram Rural Institute</option>
+    <option>The University of Burdwan</option>
+    <option>Maharishi Markandeshwar</option>
+    <option>Guru Jambheshwar University of Science and Technology</option>
+    <option>Guru Gobind Singh Indraprastha University</option>
+    <option>Utkal University</option>
+    <option>Graphic Era University</option>
+    <option>Chettinad Academy of Research and Education</option>
+    <option>Kurukshetra University</option>
+    <option>Vignan's Foundation for Science, Technology & Research</option>
+    <option>Indian Institute of Science</option>
+    <option>Jawaharlal Nehru University</option>
+    <option>Banaras Hindu University</option>
+    <option>Calcutta University</option>
+    <option>Amrita Vishwa Vidyapeetham</option>
+    <option>Jamia Millia Islamia</option>
+    <option>Manipal Academy of Higher Education</option>
+    <option>Jadavpur University</option>
+    <option>University of Hyderabad</option>
+    <option>Aligarh Muslim University</option>
+    <option>Savitribai Phule Pune University</option>
+    <option>University of Delhi</option>
+    <option>Vellore Institute of Technology</option>
+    <option>Bharathiar University</option>
+    <option>Institute of Chemical Technology</option>
+    <option>Anna University</option>
+    <option>Birla Institute of Technology & Science -Pilani</option>
+    <option>Homi Bhabha National Institute</option>
+    <option>Mysore University</option>
+    <option>Siksha `O` Anusandhan</option>
+    <option>Kalinga Institute of Industrial Technology</option>
+    <option>Shanmugha Arts Science Technology & Research Academy</option>
+    <option>Panjab University</option>
+    <option>Andhra University, Visakhapatnam</option>
+    <option>Amity University</option>
+    <option>Thapar Institute of Engineering and Technology</option>
+    <option>Kerala University</option>
+    <option>University of Madras</option>
+    <option>Saveetha Institute of Medical and Technical Sciences</option>
+    <option>S.R.M. Institute of Science and Technology</option>
+    <option>Mahatma Gandhi University</option>
+    <option>Osmania University</option>
+    <option>Alagappa University</option>
+    <option>JSS Academy of Higher Education and Research</option>
+    <option>Banasthali Vidyapith</option>
+    <option>Koneru Lakshmaiah Education Foundation University (K L College of Engineering)</option>
+    <option>Tata Institute of Social Sciences</option>
+    <option>Symbiosis International</option>
+    <option>King George`s Medical University</option>
+    <option>Sathyabama Institute of Science and Technology</option>
+    <option>Jamia Hamdard</option>
+    <option>Delhi Technological University</option>
+    <option>Gujarat University</option>
+    <option>Cochin University of Science and Technology</option>
+    <option>Gauhati University</option>
+    <option>Tezpur University</option>
+    <option>Sri Ramachandra Institute of Higher Education and Research</option>
+    <option>University of Kashmir</option>
+    <option>Dr. D. Y. Patil Vidyapeeth</option>
+    <option>Kalasalingam Academy of Research and Higher Education</option>
+    <option>Bharath Institute of Higher Education & Research</option>
+    <option>Chandigarh University</option>
+    <option>Guru Nanak Dev University</option>
+    <option>Sri Venkateswara University</option>
+    <option>SVKM`s Narsee Monjee Institute of Management Studies</option>
+    <option>Shiv Nadar University</option>
+    <option>Bharathidasan University</option>
+    <option>Pondicherry University</option>
+    <option>North Eastern Hill University</option>
+    <option>Calicut University</option>
+    <option>Datta Meghe Institute of Medical Sciences</option>
+    <option>Lovely Professional University</option>
+    <option>Madurai Kamaraj University</option>
+    <option>Visva Bharati</option>
+    <option>Babasheb Bhimrao Ambedkar University</option>
+    <option>University of Jammu</option>
+    <option>Gandhi Institute of Technology and Management</option>
+    <option>Bharati Vidyapeeth</option>
+    <option>Bangalore University</option>
+    <option>Manonmaniam Sundaranar University</option>
+    <option>Mumbai University</option>
+    <option>Padmashree Dr. D. Y. Patil Vidyapeeth, Mumbai</option>
+    <option>Pandit Deendayal Petroleum University</option>
+    <option>Periyar University</option>
+    <option>Avinashilingam Institute for Home Science & Higher Education for Women</option>
+    <option>Dr. Babasaheb Ambedkar Marathwada University</option>
+    <option>NITTE</option>
+    <option>Maharshi Dayanand University</option>
+    <option>Guru Gobind Singh Indraprastha University</option>
+    <option>Sri Balaji Vidyapeeth Mahatma Gandhi Medical College Campus</option>
+    <option>Kuvempu University</option>
+    <option>Visvesvaraya Technological University</option>
+    <option>International Institute of Information Technology Hyderabad</option>
+    <option>Central University of Punjab</option>
+    <option>The University of Burdwan</option>
+    <option>Birla Institute of Technology</option>
+    <option>Utkal University</option>
+    <option>Guru Jambheshwar University of Science and Technology</option>
+    <option>Shoolini University of Biotechnology and Management Sciences</option>
+    <option>Maharaja Sayajirao University of Baroda</option>
+    <option>KLE Academy of Higher Education and Research</option>
+    <option>Chettinad Academy of Research and Education</option>
+    <option>Assam University</option>
+    <option>Dayalbagh Educational Institute</option>
+    <option>Ashoka University</option>
+    <option>Goa University</option>
+    <option>Vignan's Foundation for Science, Technology and Research</option>
+    <option>Graphic Era University</option>
+    <option>Jain university, Bangalore</option>
+    <option>University of Petroleum and Energy Studies</option>
+                </datalist>
+    
+                <input required type="text" name="degree" placeholder="Choose your degree" list="degree"
+                    class="rounded-lg db dt bg-gray-200 dbr  db dt dbr focus:border-2 focus:border-blue-500 px-5 py-2 ">
+                    <datalist id="degree">
+                        <option>Bachelor of Architecture - B.Arch</option>
+    <option>Bachelor of Arts - B.A.    </option>
+    <option>Bachelor of Ayurvedic Medicine & Surgery - B.A.M.S.    </option>
+    <option>Bachelor of Business Administration - B.B.A.</option>
+    <option>Bachelor of Commerce - B.Com.</option>
+    <option>Bachelor of Computer Applications - B.C.A.</option>
+    <option>Bachelor of Dental Surgery - B.D.S.</option>
+    <option>Bachelor of Design - B.Des. / B.D.</option>
+    <option>Bachelor of Education - B.Ed.</option>
+    <option>Bachelor of Engineering / Bachelor of Technology - B.E./B.Tech.</option>
+    <option>Bachelor of Fine Arts - BFA / BVA</option>
+    <option>Bachelor of Fisheries Science - B.F.Sc./ B.Sc. (Fisheries).</option>
+    <option>Bachelor of Homoeopathic Medicine and Surgery - B.H.M.S.</option>
+    <option>Bachelor of Laws - L.L.B.</option>
+    <option>Bachelor of Library Science - B.Lib. / B.Lib.Sc.</option>
+    <option>Bachelor of Mass Communications - B.M.C. / B.M.M.</option>
+    <option>Bachelor of Medicine and Bachelor of Surgery - M.B.B.S.</option>
+    <option>Bachelor of Nursing</option>
+    <option>Bachelor of Pharmacy - B.Pharm / B.Pharma.</option>
+    <option>Bachelor of Physical Education - B.P.Ed.</option>
+    <option>Bachelor of Physiotherapy - B.P.T.</option>
+    <option>Bachelor of Science - B.Sc.</option>
+    <option>Bachelor of Social Work - BSW / B.A. (SW)</option>
+    <option>Bachelor of Veterinary Science & Animal Husbandry - B.V.Sc. & A.H. / B.V.Sc</option>
+    <option>Doctor of Medicine - M.D.</option>
+    <option>Doctor of Medicine in Homoeopathy - M.D. (Homoeopathy)</option>
+    <option>Doctor of Pharmacy - Pharm.D    </option>
+    <option>Doctor of Philosophy - Ph.D.</option>
+    <option>Doctorate of Medicine - D.M.</option>
+    <option>Master of Architecture - M.Arch.</option>
+    <option>Master of Arts - M.A.</option>
+    <option>Master of Business Administration - M.B.A.</option>
+    <option>Master of Chirurgiae - M.Ch.</option>
+    <option>Master of Commerce - M.Com.    </option>
+    <option>Master of Computer Applications - M.C.A.</option>
+    <option>Master of Dental Surgery - M.D.S.</option>
+    <option>Master of Design - M.Des./ M.Design.</option>
+    <option>Master of Education - M.Ed.</option>
+    <option>Master of Engineering / Master of Technology - M.E./ M.Tech.</option>
+    <option>Master of Fine Arts - MFA / MVA</option>
+    <option>Master of Laws - L.L.M.</option>
+    <option>Master of Library Science - M.Lib./ M.Lib.Sc.</option>
+    <option>Master of Mass Communications / Mass Media - M.M.C / M.M.M.</option>
+    <option>Master of Pharmacy - M.Pharm    </option>
+    <option>Master of Philosophy - M.Phil.    </option>
+    <option>Master of Physical Education M.P.Ed. / M.P.E.</option>
+    <option>Master of Physiotherapy - M.P.T.</option>
+    <option>Master of Science - M.Sc.</option>
+    <option>Master of Social Work / Master of Arts in Social Work - M.S.W. / M.A. (SW)</option>
+    <option>Master of Science in Agriculture - M.Sc. (Agriculture)</option>
+    <option>Master of Surgery - M.S.</option>
+    <option>Master of Veterinary Science - M.V.Sc.</option>
+                    </datalist>
+                <input required type="text" name="specialization" placeholder="Specialization" list="specialization"
+                    class="rounded-lg db dt bg-gray-200 dbr  db dt dbr focus:ring-blue-400 focus:ring-1 px-5 py-2 ">
+                    <datalist id="specialization">
+                        <option>B.Tech- Aeronautical Engineering</option>
+    <option>B.Tech- Automobile Engineering</option>
+    <option>B.Tech- Biotechnology</option>
+    <option>B.Tech- Civil Engineering</option>
+    <option>B.Tech- Computer Science and Engineering</option>
+    <option>B.Tech Electrical and Electronics Engineering</option>
+    <option>B.Tech Mechanical Engineering</option>
+    <option>B.Tech. Electronics & Communication</option>
+    <option>Architectural Design</option>
+    <option>Art and Design</option>
+    <option>Building Information Modeling</option>
+    <option>Building Technology</option>
+    <option>Community Design</option>
+    <option>Computer-aided Design</option>
+    <option>Engineering </option>
+    <option>Environment/sustainability</option>
+    <option>Graphic Design </option>
+    <option>Housing</option>
+    <option>Ayurveda Sinddhant and Darshana (Maulik Siddhanta)(Basic Principles of Ayurveda and Meta Physics)</option>
+    <option>Rachana Sharir(Human Anatomy)</option>
+    <option>Kriya Sharir(Human Physiology)</option>
+    <option>Ayurveda Samhita( Charak Samhita, Sushruta Samhita & Vagbhata)</option>
+    <option>Swasthavritta(Social and Preventative Medicine)</option>
+    <option>Dravyaguna Vijnana(Ayurveda Materia Medica or Herbology or herbal science including modern pharmacology and essential drugs)</option>
+    <option>Rasa Shastra & Bhaishajbya Kalpana(Ayurvedic pharmacy)</option>
+    <option>Rog Nidana & Vikriti Vigyana(Diagnosis & Pathology)</option>
+    <option>AgadaTantra, Vyavhar Ayurved & Vidhi Vaidyak(Toxicology, Medical jurisdiction and forensic science)</option>
+    <option>Clinical Subjects</option>
+    <option>Kayachikitsa(Internal Medicine)</option>
+    <option>Kaumar Bhritya (Balroga)(Pediatrics)</option>
+    <option>Panchakarma(Five Detoxification procedures)</option>
+    <option>Prasuti Tantra Evam Stri Roga(Obstetrics & Gynecology)</option>
+    <option>Shalya Tantra(Surgery)</option>
+    <option>Shalakya Tantra(ENT,Ophthalmology (Eye))</option>
+                    </datalist>
+                
+                   
+                    <div class="flex flex-row space-x-4 w-full justify-center">
+                        <input required type="text" name="start_year" placeholder="Start Year" list="year" id="sy"
+                            class="rounded-lg bg-gray-200  db dt  db dt dbr focus:border-2 focus:border-blue-500 px-5 py-2 w-1/2">
+                        <input required type="text" name="end_year" placeholder="End Year" list="year" id="ey"
+                            class="rounded-lg bg-gray-200  db dt  db dt dbr focus:border-2 focus:border-blue-500 px-5 py-2 w-1/2 ">
+                            <datalist id="year">
+                                <option>2030</option>
+    <option>2029</option>
+    <option>2028</option>
+    <option>2027</option>
+    <option>2026</option>
+    <option>2025</option>
+    <option>2024</option>
+    <option>2023</option>
+    <option>2022</option>
+    <option>2021</option>
+    <option>2020</option>
+    <option>2019</option>
+    <option>2018</option>
+    <option>2017</option>
+    <option>2016</option>
+    <option>2015</option>
+    <option>2014</option>
+    <option>2013</option>
+    <option>2012</option>
+    <option>2011</option>
+    <option>2010</option>
+    <option>2009</option>
+    <option>2008</option>
+    <option>2007</option>
+    <option>2006</option>
+    <option>2005</option>
+    <option>2004</option>
+    <option>2003</option>
+    <option>2002</option>
+    <option>2001</option>
+    <option>2012</option>
+    <option>2011</option>
+    <option>2010</option>
+    <option>2009</option>
+    <option>2008</option>
+    <option>2007</option>
+    <option>2006</option>
+    <option>2005</option>
+    <option>2004</option>
+    <option>2003</option>
+    <option>2002</option>
+    <option>2001</option>
+    <option>2000</option>
+    <option>1999</option>
+    <option>1998</option>
+    <option>1997</option>
+    <option>1996</option>
+    <option>1995</option>
+    <option>1994</option>
+    <option>1993</option>
+    <option>1992</option>
+    <option>1991</option>
+    <option>1990</option>
+    <option>1989</option>
+    <option>1988</option>
+    <option>1987</option>
+    <option>1986</option>
+    <option>1985</option>
+    <option>1984</option>
+    <option>1983</option>
+    <option>1982</option>
+    <option>1981</option>
+    <option>1980</option>
+    <option>1979</option>
+    <option>1978</option>
+    <option>1977</option>
+    <option>1976</option>
+    <option>1975</option>
+    <option>1974</option>
+    <option>1973</option>
+    <option>1972</option>
+    <option>1971</option>
+    <option>1970</option>
+    <option>1969</option>
+    <option>1968</option>
+    <option>1967</option>
+    <option>1966</option>
+    <option>1965</option>
+    <option>1964</option>
+    <option>1963</option>
+    <option>1962</option>
+    <option>1961</option>
+    <option>1960</option>
+    <option>1959</option>
+    <option>1958</option>
+    <option>1957</option>
+    <option>1956</option>
+    <option>1955</option>
+    <option>1954</option>
+    <option>1953</option>
+    <option>1952</option>
+    <option>1951</option>
+    <option>1950</option>
+    <option>1949</option>
+    <option>1948</option>
+    <option>1947</option>
+    <option>1946</option>
+    <option>1945</option>
+    <option>1944</option>
+    <option>1943</option>
+    <option>1942</option>
+    <option>1941</option>
+    <option>1940</option>
+    <option>1939</option>
+    <option>1938</option>
+    <option>1937</option>
+    <option>1936</option>
+    <option>1935</option>
+    <option>1934</option>
+    <option>1933</option>
+    <option>1932</option>
+    <option>1931</option>
+    <option>1930</option>
+    <option>1929</option>
+    <option>1928</option>
+    <option>1927</option>
+    <option>1926</option>
+    <option>1925</option>
+    <option>1924</option>
+    <option>1923</option>
+    <option>1922</option>
+    <option>1921</option>
+    <option>1920</option>
+    <option>1919</option>
+    <option>1918</option>
+    <option>1917</option>
+    <option>1916</option>
+    <option>1915</option>
+    <option>1914</option>
+    <option>1913</option>
+    <option>1912</option>
+    <option>1911</option>
+    <option>1910</option>
+    <option>1909</option>
+    <option>1908</option>
+    <option>1907</option>
+    <option>1906</option>
+    <option>1905</option>
+    <option>1904</option>
+    <option>1903</option>
+    <option>1902</option>
+    <option>1901</option>
+    <option>1900</option>
+                            </datalist>
+                    </div>
+                    <div class="flex flex-row dt db bg-white rounded-md px-10 py-5 border-2 border-gray-200">
+                        <label for="age">I'm 16 years Old</label>
+                        <div class="w-3/5"></div>
+                    <input required type="checkbox" name="age" id="age" class="w-5 h-5" onclick="study_duration()">
+                    </div>
+    
+                    
+                <div class="flex flex-col-reverse sm:flex-row sm:justify-around pt-4">
+                    <div class="text-gray-600 flex flex-col justify-center">
+                        <a href="/signup/" class="block text-left">Back</a>
+                    </div>
+                    <div class="flex flex-col sm:flex-row sm:justify-end space-x-1 sm:text-right">
+                        <button type="reset"
+                            class="mx-auto bg-red-800 text-white hover:bg-red-500 active:bg-red-800 rounded-lg px-4 py-2 w-full sm:w-fit my-1">reset</button>
+                            <button type="submit"
+                            class="mx-auto bg-blue-800 text-white hover:bg-blue-500 active:bg-blue-800 rounded-lg px-4 py-2 w-full sm:w-fit my-1">Sign Up</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+    
+    <!-- your profile -->
+    <div id="intrest" class="w-full hidden">
+        <div class="flex flex-row justify-center">
+            <p class="text-xl font font-semibold px-4 py-2 mt-6 dtl">Are You Looking For A New Job?</p>
+        </div>
+
+        <div class="flex flex-col space-y-4 justify-center mt-10">
+            <button
+            class="mx-auto bg-blue-800 text-2xl font-semibold text- w-60 text-white hover:bg-blue-500 active:bg-blue-800 rounded-lg px-4 py-2" onclick="window.location='/user/'" >Yes</button>
+            <button
+            class="mx-auto bg-blue-800 text-2xl font-semibold text- w-60 text-white hover:bg-blue-500 active:bg-blue-800 rounded-lg px-4 py-2" onclick="window.location='/'" >Not Now</button>
+        </div>
+    </div>
+    <!-- your profile -->
+    <!-- footer -->
+    <div class="flex flex-row justify-center mx-auto text-sm dark:text-gray-500 relative bottom-0 mt-52 mb-5">
+        <span class="">Copyright© Hire and Seek 2021-2022</span>
+    </div>
+    <!-- footer -->
+    <script>
+
+        // to checking the value of the entered year
+        study_duration=()=>{
+            start_year=document.getElementById('sy').value
+            end_year=document.getElementById('ey').value
+            if(start_year>=end_year){
+                alert('Invalid Study Duration')
+                document.getElementById('sy').value=''
+                document.getElementById('ey').value=''
+                document.getElementById('age').checked=false
+            }
+        }
+
+        firstPage = document.getElementById('firstPage')
+        educationPage = document.getElementById('educationPage')
+        check = document.getElementById('age')
+        intrest = document.getElementById('intrest')
+        // console.log(check.value);
+       
+        const params = new URLSearchParams(window.location.search)
+       
+        if (params.has('q')) {
+           
+            
+            if (params.get('q') == "intrest") {
+                firstPage.classList.add('hidden');
+                educationPage.classList.add('hidden');
+                intrest.classList.remove('hidden');
+
+            }
+            
+        }
+        sgnup=()=> {
+                firstPage.classList.toggle('hidden');
+                educationPage.classList.toggle('hidden');
+                em=document.getElementById('email').value;
+                confem=document.getElementById('confemail').value;
+                pwd=document.getElementById('password').value;
+                confpwd=document.getElementById('confpassword').value;
+                if(em!=confem||pwd!=confpwd){
+                    alert("Email or Password is not matched")
+                    window.location='/signup/';
+                }
+            }
+       
+        // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+        if (localStorage.theme === 'dark') {
+        document.documentElement.classList.add('dark')
+        } else {
+        document.documentElement.classList.remove('dark')
+        }
+
+     
+    </script>
+</body>
+
+</html>

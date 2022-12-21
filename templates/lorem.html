@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/assets/input.css">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <div>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis recusandae dolore fuga necessitatibus iure reiciendis voluptates blanditiis voluptas, eum magni ducimus inventore repudiandae facere aliquam nisi cumque! Adipisci quasi libero veniam tenetur nemo dicta veritatis doloribus, et assumenda labore rem! Placeat quia optio quidem deserunt atque temporibus commodi quo eligendi unde dolore aliquid veniam cumque deleniti, tenetur ut quae molestiae ab sint iste libero. Dignissimos asperiores officia excepturi quae voluptate provident iste iusto libero aspernatur architecto inventore adipisci maiores necessitatibus natus sit labore iure alias quas nobis eveniet animi fuga reprehenderit, deleniti cumque! Assumenda cumque adipisci minima similique debitis delectus sit laborum, tempore, praesentium placeat cum veniam reprehenderit labore nihil iure nulla doloremque? Voluptate ipsum pariatur obcaecati consequatur aut aliquid dolorum blanditiis, placeat, deleniti molestiae veniam corrupti facilis consectetur quis possimus delectus sed? At voluptatem blanditiis quidem eveniet in laudantium consequuntur maxime dolor, fugit dolores corporis similique velit! Nulla laboriosam nam perferendis veritatis repellat accusantium reiciendis provident libero, sed deleniti exercitationem dolor, illo obcaecati velit ipsa dolorem cupiditate? Odit, porro optio! Necessitatibus beatae perspiciatis rem eveniet, iure, debitis recusandae esse ipsam deserunt cumque maxime ipsa ullam quas porro blanditiis architecto aperiam aspernatur voluptatem laborum excepturi in? Vero sequi numquam officiis.
+    </div>
+    
+<dialog id="favDialog" class=" z-10 bg-transparent">			
+    <div class="w-full h-[200%] hidden  " id="modal">
+                        <div class="flex flex-row justify-center mt-32">
+                            <div
+                                class="window im db dark:border-none bg-white border-2 border-gray-300 px-6 pb-24 pt-10 justify-center rounded-lg">
+                                <div class="flex flex-row justify-end -mt-3 mb-3 ">
+                            <form method="dialoge">
+                                    <button value="default"
+                                        class="h-7 w-7 bg-red-600 rounded-full flex flex-col hover:shadow-lg hover:shadow-red-500 hover:bg-red-500 active:bg-red-600 justify-center text-center text-white">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"
+                                            class="fill-current w-5 h-5 mx-auto">
+                                            <!--! Font Awesome Pro 6.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                                            <path
+                                                d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z" />
+                                        </svg>
+                                    </button>
+                       </form>
+                                </div>
+                                <form action="/user/" method="post" id="nameModal" class="flex flex-col space-y-3 ">
+                                    
+                
+                                    <div class="flex flex-col space-y-2 sm:flex-row  sm:space-y-0 sm:space-x-4 w-full justify-center">
+                                        <input type="text" placeholder="Name" name="name"
+                                            class="rounded-lg db dark:focus:bg-gray-600 bg-gray-200 focus:bg-white  dark:border-[1px] dark:border-gray-600 focus:border-2 focus:border-blue-500 px-5 py-2 w-full sm:w-1/2">
+                                        <input type="text" placeholder="Location" name="place"
+                                            class="rounded-lg db dark:focus:bg-gray-600 bg-gray-200 focus:bg-white  dark:border-[1px] dark:border-gray-600 focus:border-2 focus:border-blue-500 px-5 py-2 w-full sm:w-1/2 m-0">
+                                    </div>
+                                    <input type="email" placeholder="UserName or Email" name="email"
+                                        class="rounded-lg db dark:focus:bg-gray-600 bg-gray-200 focus:bg-white  dark:border-[1px] dark:border-gray-600 focus:border-2 focus:border-blue-500 px-5 py-2 ">
+                                    <input type="website" placeholder="Website" name="website"
+                                        class="rounded-lg db dark:focus:bg-gray-600 bg-gray-200 focus:bg-white  dark:border-[1px] dark:border-gray-600 focus:border-2 focus:border-blue-500 px-5 py-2 ">
+                                    <input type="text" placeholder="Phone Number" pattern="[0-9]{10}" name="phone"
+                                        title="Please enter a ten Digit phone Number"
+                                        class="rounded-lg db dark:focus:bg-gray-600 bg-gray-200 focus:bg-white  dark:border-[1px] dark:border-gray-600 focus:ring-blue-400 focus:ring-1 px-5 py-2 ">
+                                    <div class="flex flex-row space-x-2 justify-end">
+                                        <button type="reset"
+                                            class="w-fit bg-blue-800 text-white hover:bg-blue-500 active:bg-blue-800 rounded-lg px-4 py-2">reset</button>
+                                        <button type="submit"
+                                            class=" w-fit bg-emerald-800 text-white hover:bg-emerald-500 active:bg-emerald-800 rounded-lg px-4 py-2">Save</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+    
+    </dialog>
+    
+      
+      
+     <div class="edit w-10 h-10 flex flex-row justify-center text-center rounded-full items-center hover:bg-blue-300 px-2 py-2 "
+                            onclick="modalSwitch()">
+    
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                                Class="dark:fill-gray-200 w-7 h-7">
+                                <!--! Font Awesome Pro 6.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                                <path
+                                    d="M362.7 19.32C387.7-5.678 428.3-5.678 453.3 19.32L492.7 58.75C517.7 83.74 517.7 124.3 492.7 149.3L444.3 197.7L314.3 67.72L362.7 19.32zM421.7 220.3L188.5 453.4C178.1 463.8 165.2 471.5 151.1 475.6L30.77 511C22.35 513.5 13.24 511.2 7.03 504.1C.8198 498.8-1.502 489.7 .976 481.2L36.37 360.9C40.53 346.8 48.16 333.9 58.57 323.5L291.7 90.34L421.7 220.3z" />
+                            </svg>
+    
+                        </div>
+</body>
+</html>
+
+
+                      <script>
+                            modalwindow =document.getElementById("modal");
+
+			
+var favDialog = document.getElementById('favDialog');
+
+modalSwitch = () => {
+        if (typeof favDialog.showModal === "function") {
+favDialog.showModal();
+} else {
+alert("The <dialog> API is not supported by this browser");
+}
+     // modal window is nModal
+     modalWindow = document.getElementById('modal');
+     // modal Form Has the id nameModal
+     var formModal = document.getElementById('formModal');
+     modalWindow.classList.toggle('hidden');
+     // formModal.getElementsByTagName('textarea')[0].value = summary;
+     // console.log(nameModal);
+     }
+     
+favDialog.addEventListener('close', function onClose() {
+favDialoge.classList.add('hidden')
+});    
+                      </script>                    

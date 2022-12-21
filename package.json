@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "gzip": "^0.1.0"
+  }
+}

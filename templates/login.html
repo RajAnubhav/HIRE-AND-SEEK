@@ -1,0 +1,230 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/assets/input.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <style>
+      
+      .digit-group input {
+		width: 30px;
+		height: 50px;
+		background-color: lighten(#0f0f1a, 5%);
+		border: none;
+		line-height: 50px;
+		text-align: center;
+		font-size: 24px;
+		font-family: 'Raleway', sans-serif;
+		font-weight: 200;
+		color: rgb(197, 38, 38);
+		margin: 0 2px;
+	}
+
+	.splitter {
+		padding: 0 5px;
+		color: rgb(10, 7, 7);
+		font-size: 24px;
+	}
+
+
+.prompt {
+	margin-bottom: 20px;
+	font-size: 20px;
+	color: rgb(182, 31, 31);
+}
+    </style>
+    <title>Hire and Seek</title>
+</head>
+
+<body class="bg-[#f3f2ef] dark:bg-black">
+    <!-- Initial Page -->
+    <div class="initial_page" id="initial_page">
+        <div class="nav flex flex-row space-x-2 justify-center py-5 cursor-pointer  " onclick="window.location='/'">
+            <span class="logo flex flex-col justify-center"><img src="/static/image/linkedin_logo.png" alt="logo"
+                style="margin-right: 5px;height: 50px;width: 70px;"onclick="window.location='/'" class="cursor-pointer"></span>
+            <span class="txt flex flex-col justify-center"><span class="text-4xl font-bold dt ">Hire and Seek</span></span>
+        </div>
+
+        <div class="flex flex-row justify-center">
+            <p class="text-xl font font-semibold px-4 py-2 mt-6 dark:text-gray-500">SignIn/SignUp</p>
+        </div>
+
+        <div class="form flex flex-row justify-center w-full mt-5 py-3 ">
+
+            <form action="/login/" method="post"
+                class="flex flex-col space-y-3 w-[80%] lg:w-[20%]  db dt dark:border-none bg-white border-2 border-gray-300 px-6 pb-24 pt-10 justify-center rounded-lg">
+                {% csrf_token %}
+                 <input required type="email" name="email" placeholder="Registered Email"
+                    class="rounded-lg db dark:border-gray-600 dark:border-2 bg-gray-200 focus:border-2 focus:border-blue-500 px-5 py-2 ">
+                 <input required type="password" name="password" placeholder="Password"
+                    class="rounded-lg db dark:border-gray-600 dark:border-2 bg-gray-200 focus:ring-blue-400 focus:ring-1 px-5 py-2 ">
+                <button type="submit"
+                    class="mx-auto bg-blue-800 text-white hover:bg-blue-500 active:bg-blue-800 rounded-lg px-4 py-2">Login</button>
+                <a href="/login/?q=forget_password" class="text-sm text-gray-500 text-center">Forget Password</a>
+                <a href="/signup/" class="text-sm text-blue-500 text-center">Not a member?SignUp</a>
+            </form>
+
+        </div>
+    </div>
+    <!-- Initial Page -->
+    <!-- ==================================================================================================== -->
+    <!-- forget page -->
+    <div class="forget_page hidden" id="forget_page">
+
+        <div class="nav flex flex-row space-x-2 justify-center py-5 cursor-pointer  " onclick="window.location='/'">
+            <span class="logo flex flex-col justify-center"><img src="./image/linkedin_logo.png" alt="logo"
+                    class="w-8 h-8 "></span>
+            <span class="txt text-4xl font-bold dt">Hire and Seek</span>
+        </div>
+
+        <div class="flex flex-row justify-center">
+            <p class="text-xl font font-semibold px-4 py-2 mt-6 dark:text-gray-600">Forget Password</p>
+        </div>
+
+        <div class="form flex flex-row justify-center w-full mt-5 py-3 ">
+
+            <form action="/login/?q=otp" method="post"
+                class="flex flex-col space-y-3 w-[80%]  lg:w-[20%]   db dark:border-gray-600  bg-white border-2 border-gray-300 px-6 pb-5 pt-10 justify-center rounded-lg">
+                {% csrf_token %}
+                 <input required type="text" placeholder="Enter Your Email"
+                    class="rounded-lg bg-gray-200 dark:border-gray-600 dark:border-2 db bg-gray-20 dt border-none focus:border-2 focus:border-blue-500 px-5 py-2 ">
+                <div class="flex flex-row justify-end -space-x-16">
+                    <button type="reset" class="mx-auto bg-blue-800 text-white hover:bg-blue-500 active:bg-blue-800 rounded-lg px-4 py-2">reset</button>
+                    <button type="submit" class="mx-auto bg-blue-800 text-white hover:bg-blue-500 active:bg-blue-800 rounded-lg px-4 py-2">Send OTP</button>
+                </div>
+                <!-- <a href="/login/" class="text-sm text-gray-500 text-center">AlreaLogin</a> -->
+
+            </form>
+
+        </div>
+
+    </div>
+    <!-- forget page -->
+    <!-- otp -->
+    <div class="otp_page hidden" id="otp_page">
+
+        <div class="nav flex flex-row space-x-2 justify-center py-5 cursor-pointer" onclick="window.location='/'">
+            <span class="logo flex flex-col justify-center"><img src="./image/linkedin_logo.png" alt="logo"
+                    class="w-8 h-8 "></span>
+            <span class="txt text-4xl font-bold dt">Hire and Seek</span>
+        </div>
+
+        <div class="flex flex-row justify-center">
+            <p class="text-xl font font-semibold px-4 py-2 mt-6 dark:text-gray-600">Forget Password</p>
+        </div>
+
+        <div class="form flex flex-row justify-center w-full mt-5 py-3 ">
+            <form method="post" id="otp_form" action="/login/" class="digit-group db dark:border-gray-600 bg-white border-2 border-gray-200 px-6 pb-5 pt-10 justify-center rounded-lg" data-group-name="digits" data-autosubmit="false" autocomplete="off"
+             >
+             {% csrf_token %}
+                 <input required   class="bg-gray-200 rounded-md dark:border-gray-200 dark:border-2 dark:bg-gray-400 " type="text" id="digit-1" name="digit-1" data-next="digit-2" />
+                 <input required   class="bg-gray-200 rounded-md dark:border-gray-200 dark:border-2 dark:bg-gray-400 " type="text" id="digit-2" name="digit-2" data-next="digit-3" data-previous="digit-1" />
+                 <input required   class="bg-gray-200 rounded-md dark:border-gray-200 dark:border-2 dark:bg-gray-400 " type="text" id="digit-3" name="digit-3" data-next="digit-4" data-previous="digit-2" />
+                <span class="splitter dt">&ndash;</span>
+                 <input required   class="bg-gray-200 rounded-md dark:border-gray-200 dark:border-2 dark:bg-gray-400 " type="text" id="digit-4" name="digit-4" data-next="digit-5" data-previous="digit-3" />
+                 <input required   class="bg-gray-200 rounded-md dark:border-gray-200 dark:border-2 dark:bg-gray-400 " type="text" id="digit-5" name="digit-5" data-next="digit-6" data-previous="digit-4" />
+                 <input required   class="bg-gray-200 rounded-md dark:border-gray-200 dark:border-2 dark:bg-gray-400 " type="text" id="digit-6" name="digit-6" data-previous="digit-5" />
+                <div class="flex flex-row justify-end -space-x-16 mt-3">
+                    <button type="reset" class="mx-auto bg-blue-800 text-white hover:bg-blue-500 active:bg-blue-800 rounded-lg px-4 py-2">reset</button>
+                    <button type="submit" class="mx-auto bg-blue-800 text-white hover:bg-blue-500 active:bg-blue-800 rounded-lg px-4 py-2">Submit OTP</button>
+                </div>
+            </form>
+            <!-- <button onclick="get_otp()">know</button> --> 
+
+        </div>
+
+    </div>
+    <!-- otp -->
+    <!-- footer -->
+    <div class="flex flex-row justify-center mx-auto text-sm dark:text-gray-500 relative bottom-0 mt-52 mb-5">
+        <span>Copyright© Hire and Seek 2021-2022</span>
+    </div>
+    <!-- footer -->
+
+    <!-- <button onclick="erase()">Click to erase everything</button> -->
+    <script>
+        init = document.getElementById('initial_page')
+        forget_page = document.getElementById('forget_page')
+        otp_page = document.getElementById('otp_page')
+       
+        const params = new URLSearchParams(window.location.search)
+       
+        if (params.has('q')) {
+            if (params.get('q') == "forget_password") {
+                init.classList.toggle('hidden');
+                console.log("Otp se pehla panna");
+                forget_page.classList.toggle('hidden');
+            }
+            else if(params.get('q')=="otp"){
+                alert('Your OTP HasSent')
+                // forget_page.classList.add('hidden');
+                // init.classList.add('hidden');
+                // console.log("This is otp page");
+                // otp_page.classList.toggle('hidden');
+
+            }
+        }
+
+
+        // otp js for otp enters one digit per input tag
+        $('.digit-group').find('input').each(function() {
+	    $(this).attr('maxlength', 1);
+	    $(this).on('keyup', function(e) {
+		var parent = $($(this).parent());
+		
+		if(e.keyCode === 8 || e.keyCode === 37) {
+			var prev = parent.find('input#' + $(this).data('previous'));
+			
+			if(prev.length) {
+				$(prev).select();
+			}
+		} else if((e.keyCode >= 48 && e.keyCode <= 57) || (e.keyCode >= 65 && e.keyCode <= 90) || (e.keyCode >= 96 && e.keyCode <= 105) || e.keyCode === 39) {
+			var next = parent.find('input#' + $(this).data('next'));
+			
+			if(next.length) {
+				$(next).select();
+			} else {
+				if(parent.data('autosubmit')) {
+					parent.submit();
+				}
+			}
+		}
+	});
+});
+
+//  this is to get all the input otp in one string
+    let otp_input_arr=new Array();
+
+//    this function returns the otp to verify with the server's sent otp 
+    get_otp=()=>{
+        for(i=1;i<7;i++){
+        otp_input_arr[i-1]=document.getElementById('digit-'+i).value;
+    }
+        // console.log(otp_input_str);
+        otp_input_str=otp_input_arr.join('')
+        console.log(otp_input_str);
+
+        return otp_input_str;
+       
+    }
+
+    
+
+   
+        // otp js
+ // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+ if (localStorage.theme === 'dark') {
+        document.documentElement.classList.add('dark')
+        } else {
+        document.documentElement.classList.remove('dark')
+        }
+    </script>
+</body>
+
+</html>
