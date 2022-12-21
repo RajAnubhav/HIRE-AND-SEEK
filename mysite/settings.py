@@ -11,9 +11,6 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
-import os
-import django_heroku
-import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -28,10 +25,8 @@ SECRET_KEY = 'django-insecure-3f=a99*jm)-%%h(=z0edoxvkr(90^v=c+nru$09y^&%&ltpf*p
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-# earlier version of django
-# ALLOWED_HOSTS = ['*']
-# updated on 21-12-2022
-ALLOWED_HOSTS = ['.vercel.app', '.now.sh']
+ALLOWED_HOSTS = ["*"]
+
 
 # Application definition
 
@@ -118,29 +113,14 @@ USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
-# earlier version of django
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-# STATIC_URL = 'static/'
-# STATIC_ROOT=os.path.join(BASE_DIR, 'staticfiles')
-# STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
-# STATICFILES_DIRS=[
-#     BASE_DIR / "static",
-# ]
-django_heroku.settings(locals())
+STATIC_URL = 'static/'
+STATICFILES_DIRS=[
+    BASE_DIR / "static",
+]
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-
-
-
-# app = application
-
-# static work
-
-
-
-STATICFILES_DIRS = os.path.join(BASE_DIR,'static'),
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')

@@ -408,8 +408,8 @@ def company(request):
         t = tuple(cursor.fetchall())
         p = list(t)
         print(t)
-        pt = p[0:]
-        # print(p[0])
+        pt = p[0]
+        print(p[0])
         ptp = list(pt)
         print(ptp)  # it is a list of the data saved in database
         # print('length of ptp is: ',len(ptp))
@@ -977,7 +977,6 @@ def generate_view(request, *args, **kwargs):
     pdf= pdfConvertor('user.html', context)
 
     return HttpResponse(pdf, content_type='application/pdf')
-
 
 
 
