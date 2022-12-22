@@ -550,7 +550,7 @@ def recommend(int):
     
     for i in company_list:
         id.append(comp.iloc[i[0]].job_id)
-    print(id)
+    #print(id)
         
     return id
     

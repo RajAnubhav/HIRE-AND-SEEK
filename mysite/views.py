@@ -39,9 +39,9 @@ def posted_job(request):
     c3 = """select * from job where domain='{}'""".format(jai)# jai means job application id
     cursor.execute(c3)
     t = tuple(cursor.fetchall())
-    # print("This is t: ",t)
+    # #print("This is t: ",t)
     p = list(t)
-    # print("This is th evalue of p[0] ",p[0])
+    # #print("This is th evalue of p[0] ",p[0])
     l=[]
     for i in range (0,len(p)):
         comp={}
@@ -62,7 +62,7 @@ def posted_job(request):
 
         l.append(comp)
     args['jobs']=l  
-    print("this is l:",l)   
+    #print("this is l:",l)   
     args['jobs']=l
        
     return render(request,'posted_job.html',args)
@@ -137,7 +137,7 @@ def pinned_job(request):
     cursor.execute(c3)
     t = tuple(cursor.fetchall())
     p = list(t)
-    print(p)
+    #print(p)
     l=[]
     for i in range (0,len(p)):
         comp={}
@@ -153,7 +153,7 @@ def pinned_job(request):
         t1 = tuple(cursor.fetchall())
         p1 = list(t1)
         pt1= list(p1[0])
-        print("this is job at job_id= ",pt[2]," is ",pt1)
+        #print("this is job at job_id= ",pt[2]," is ",pt1)
         comp['comp_name']=pt1[1]
         comp['jobdescription']=pt1[2]
         comp['jobtitle']=pt1[3]
@@ -169,7 +169,7 @@ def pinned_job(request):
 
         l.append(comp)
     # args['jobs']=l  
-    print("this is l:",l)   
+    #print("this is l:",l)   
     args['jobs']=l
        
 
@@ -186,7 +186,7 @@ def pinned_job(request):
 
             if key == "job_id":
                 job_id = value
-        print('job applicant id is :',job_applicant_id)        
+        #print('job applicant id is :',job_applicant_id)        
         c1 = """INSERT INTO pinned_job Values('{}','{}', '{}','{}');""".format(0,job_applicant_id,job_id,date_time)    
         cursor.execute(c1)
         m.commit() 
@@ -222,17 +222,17 @@ def home(request):
     # m.commit() this is only for inserting the data
     t = tuple(cursor.fetchall())
     # for row in cursor:
-    #     print(row)
+    #     #print(row)
     # a=[""]*11
-    # print(t)
+    # #print(t)
     p = list(t)
     args={'length':len(p)}
 
-    # print(p)
-    print("length of fetched data is :",len(p))
-    # print("this is second index: ",p[1])
-    # print("this is third index: ",p[2])
-    # print("this is third index: ",list(p[2]))
+    # #print(p)
+    #print("length of fetched data is :",len(p))
+    # #print("this is second index: ",p[1])
+    # #print("this is third index: ",p[2])
+    # #print("this is third index: ",list(p[2]))
     l=[]
 
     for i in range (0,len(p)):
@@ -250,38 +250,38 @@ def home(request):
         comp['time']=pt[9]
         comp['post']=pt[10]
         
-        # print(comp)
+        # #print(comp)
     # l.[i]=comp
         l.append(comp)
-    #         print(pt[j],end=" | ")
+    #         #print(pt[j],end=" | ")
     #         args[f"d{i}{j}"]=pt[j] #if you want to take individual element of a row as a key in dictonary
     #     # args[f"d{i}"]=pt #if you want to take a row as an array in one key of dictonary
-        # print("it is pt :",pt)
+        # #print("it is pt :",pt)
             # it is pt : [4, 'company', 'jobdescription', 'jobtitle', 'skills', 'joblocation_address', datetime.datetime(2022, 3, 22, 18, 5, 21), 'vacencies']
 # this is args:  {'length': 3}
-    # print("This is list of dictonories : ",l)
+    # #print("This is list of dictonories : ",l)
     args['jobs']=l
     # data={}
     #     # l.append(pt)
-    #     print('\n')
+    #     #print('\n')
 
-    # print(l[1])
+    # #print(l[1])
     # args['data':l]
     # data={'':''}
 
-    # print("this is args: ",args)
+    # #print("this is args: ",args)
     
     # pt = p[0]
-    # print(p[0])
-    # print("hello")
+    # #print(p[0])
+    # #print("hello")
     # ptp = list(pt)
     
-    # print(ptp) 
-    # print("this is first index: ",ptp[0])
+    # #print(ptp) 
+    # #print("this is first index: ",ptp[0])
     #how to pass list in dictonary
     #pehle hm list ki length pass karayege
     #phir loop ki help se args mai multiple element pass karayege
-    # kyuki hme lenght pata hai to agle page (template) par bhi uski help se ek hi row ka data print kar lenge
+    # kyuki hme lenght pata hai to agle page (template) par bhi uski help se ek hi row ka data #print kar lenge
     return render(request, 'home.html',args)
 
 
@@ -309,9 +309,9 @@ def login(request):
         cursor.execute(c)
         t = tuple(cursor.fetchall())
         # for row in cursor:
-        #     print(row)
+        #     #print(row)
         # a=[""]*11
-        print(t)
+        #print(t)
        
 
         if t == ():
@@ -322,11 +322,11 @@ def login(request):
         else:
             p = list(t)
             pt = p[0]
-            print(p[0])
-            print("hello")
+            #print(p[0])
+            #print("hello")
             ptp = list(pt)
-            print(ptp)  # it is a list of the data saved in database
-            # print(ptp[0])
+            #print(ptp)  # it is a list of the data saved in database
+            # #print(ptp[0])
             name = (ptp[1]+" "+ptp[2])
             # args = {'name': name, 'college': ptp[2], 'degree': ptp[3],
                     # 'specialization': ptp[4], 'start_year': ptp[5], 'end_year': ptp[6]}
@@ -363,9 +363,9 @@ def login_company(request):
         cursor.execute(c)
         t = tuple(cursor.fetchall())
         # for row in cursor:
-        #     print(row)
+        #     #print(row)
         # a=[""]*11
-        print(t)
+        #print(t)
        
 
         if t == ():
@@ -376,11 +376,11 @@ def login_company(request):
         else:
             p = list(t)
             pt = p[0]
-            print(p[0])
-            print("hello")
+            #print(p[0])
+            #print("hello")
             ptp = list(pt)
-            print(ptp)  # it is a list of the data saved in database
-            # print(ptp[0])
+            #print(ptp)  # it is a list of the data saved in database
+            # #print(ptp[0])
             request.session['name']=ptp[1]
             request.session['iscompany']='yes'
             request.session['login_id']=ptp[0]
@@ -405,21 +405,21 @@ def company(request):
         # q = "Select * from company where email='{}'".format(id)
         q = """select name, location, email, domain, phone, summary,type_of_company , est_year ,about ,linkedin ,language_worked_with ,collab_tools ,opsys ,plateform_worked_with,honor_or_reward ,honor_or_reward_desc from comp_profile where email='{}'""".format(id)
 
-        m1=cursor.execute(q)
-        print(m1)
+        cursor.execute(q)
+        #print(m1)
         t = tuple(cursor.fetchall())
         p = list(t)
         
         pt = p[0]
         ptp = list(pt)
-        print("The value of ptp is : ", ptp)
+        #print("The value of ptp is : ", ptp)
 
         kwargs = {'name':ptp[0],'location':ptp[1],'email':ptp[2],'domain':ptp[3],'phone':ptp[4],'summary':ptp[5],'type_of_company':ptp[6],'est_year':ptp[7],'about':ptp[8],'linkedin':ptp[9],'language_worked_with':ptp[10],'collab_tools':ptp[11],'opsys':ptp[12],'plateform_worked_with':ptp[13],'honor_or_reward':ptp[14],'honor_or_reward_desc':ptp[15],'cn':'cn'}
         return kwargs
         
-    print('you are:', request.session.get('name'))
+    #print('you are:', request.session.get('name'))
 
-    print('your id:', request.session.get('email'))
+    #print('your id:', request.session.get('email'))
     # request.session.set_expiry(1200) #this is to expire the session within 20 min of inactivity
     # this is the query function
     def query(fieldname,variable):
@@ -476,7 +476,7 @@ def company(request):
 
         # useer
         
-        print('your id within user post fxn',id)
+        #print('your id within user post fxn',id)
         # post ewquest
         kwargs=comp_info(id)
 
@@ -486,7 +486,7 @@ def company(request):
     if  request.session.get('set')!='yes':
         return redirect('/')
     else: 
-        # kwargs has to declare in else block if we call it before posr request block it will throw an error
+        # kwargs has to declare in else block if we call it before post request block it will throw an error
         kwargs=comp_info(id)    
         return render(request, 'company.html',kwargs)
 
@@ -528,10 +528,10 @@ def test(request):
         t = tuple(cursor.fetchall())
         p = list(t)
         pt = p[0]
-        print(p[0])
+        #print(p[0])
         ptp = list(pt)
-        print(ptp)  # it is a list of the data saved in database
-        # print('length of ptp is: ',len(ptp))
+        #print(ptp)  # it is a list of the data saved in database
+        # #print('length of ptp is: ',len(ptp))
         kwargs = {'name':ptp[0],'place':ptp[1],'email':ptp[2],'website':ptp[3],'phone':ptp[4],'summary':ptp[5],'experience':ptp[6],'college':ptp[7],'degree':ptp[8],'timePeriod':ptp[9],'certificate_name':ptp[10],'certificate_desc':ptp[11],'database_worked_with':ptp[12],'language_worked_with':ptp[13],'collab_tools':ptp[14],'opsys':ptp[15],'plateform_worked_with':ptp[16],'honor_or_reward':ptp[17],'honor_or_reward_desc':ptp[18],'cn':'cn'}
         return kwargs
     return render(request, 'company.html')
@@ -711,20 +711,20 @@ def user(request):
         t = tuple(cursor.fetchall())
         p = list(t)
         pt = p[0]
-        print(p[0])
+        #print(p[0])
         ptp = list(pt)
-        print(ptp)  # it is a list of the data saved in database
-        # print('length of ptp is: ',len(ptp))
+        #print(ptp)  # it is a list of the data saved in database
+        # #print('length of ptp is: ',len(ptp))
         kwargs = {'name':ptp[0],'place':ptp[1],'email':ptp[2],'website':ptp[3],'phone':ptp[4],'summary':ptp[5],'experience':ptp[6],'college':ptp[7],'degree':ptp[8],'timePeriod':ptp[9],'certificate_name':ptp[10],'certificate_desc':ptp[11],'database_worked_with':ptp[12],'language_worked_with':ptp[13],'collab_tools':ptp[14],'opsys':ptp[15],'plateform_worked_with':ptp[16],'honor_or_reward':ptp[17],'honor_or_reward_desc':ptp[18],'cn':'cn'}
         return kwargs
     # get request
     def recommended():
         m = sql.connect(host='localhost', user='root',passwd='', database='JobShip')
         cursor = m.cursor()
-        # this is for printing recommendation
+        # this is for #printing recommendation
         if not  request.session.get('iscompany'):
-            # print("these are the recommendations :",ml.recommend(request.session.get('job_applicant_id')))
-            # print("This is your job applicant id :",request.session.get('job_applicant_id'))
+            # #print("these are the recommendations :",ml.recommend(request.session.get('job_applicant_id')))
+            # #print("This is your job applicant id :",request.session.get('job_applicant_id'))
             recj=ml.recommend(request.session.get('job_applicant_id'))
             
             # this will give us a list with recommended jobs
@@ -750,9 +750,9 @@ def user(request):
             kwargs['recommended_jobs']=rec_l
 
 
-    print('you are:', request.session.get('name'))
+    #print('you are:', request.session.get('name'))
 
-    print('your id:', request.session.get('email'))
+    #print('your id:', request.session.get('email'))
     # request.session.set_expiry(1200) #this is to expire the session within 20 min of inactivity
     # this is the query function
     def query(fieldname,variable):
@@ -848,7 +848,7 @@ def user(request):
 
         # useer
         
-        print('your id within user post fxn',id)
+        #print('your id within user post fxn',id)
         # post ewquest
         kwargs=user_info(id)
         if not request.session.get('issignup'):
@@ -938,7 +938,7 @@ def generate_view(request, *args, **kwargs):
 
     p=list(t)
     args={'length':len(p)}
-    print(p)
+    #print(p)
     l=[]
     data={'':''}
     for i in range(0, len(p)):
@@ -964,16 +964,16 @@ def generate_view(request, *args, **kwargs):
         comp['honor_or_reward']=pt[18]
         comp['honor_or_reward_desc']=pt[19]
                                    
-        print("this is comp in generate view section ",comp)
+        #print("this is comp in generate view section ",comp)
 
         l.append(comp)
         
-        print("Testing the list: ",l)
+        #print("Testing the list: ",l)
         data={'student':l}
-        print(data)
+        #print(data)
 
     context=data
-    print("This is context from generate-view function(): ", context)
+    #print("This is context from generate-view function(): ", context)
     html= template.render(context)
     pdf= pdfConvertor('user.html', context)
 
