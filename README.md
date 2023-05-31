@@ -9,7 +9,10 @@ Team name : <strong>HIRE AND SEEK</strong>
 <hr>
 
 # Description:
-"There are requirement of good and qualified persons for jobs in industry and they are always in the search for such Manpower. Whereas HEIs always looking for good industries for their students.The main focus of this problem statement is to 1. To create a platform for the students to register and submit their updated profiles 2. Industries will submit their vacant positions as an employee or an intern 3. Based on the recommendation system the aspirant students to get their desired job notification announcements and also internship announcementsTo create a recommendation system for the aspirant students and industries in terms of jobs and internship."
+"There are requirement of good and qualified persons for jobs in industry and they are always in the search for such Manpower. Whereas HEIs always looking for good industries for their students.The main focus of this problem statement is to <br>
+1. To create a platform for the students to register and submit their updated profiles 
+2. Industries will submit their vacant positions as an employee or an intern 
+3. Based on the recommendation system the aspirant students to get their desired job notification announcements and also internship announcementsTo create a recommendation system for the aspirant students and industries in terms of jobs and internship."
 
 <br>
 
