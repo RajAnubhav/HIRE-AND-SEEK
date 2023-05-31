@@ -109,6 +109,25 @@ threadpoolctl==3.1.0
 tinycss2==1.2
 
 ```
+<br>
+
+# Code to run the project
+```
+cd HIRE-AND-SEEK
+```
+<br>
+
+# Windows: <br>
+```
+python manage.py runserver
+```
+<br>
+
+# Linux-based System: <br>
+```
+python3 manage.py runserver
+```
+
 
 <br>
 <br>
