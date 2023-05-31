@@ -2,6 +2,10 @@
 Team name : <strong>HIRE AND SEEK</strong>
 <br>Members name : Amiyanshu, Rhutika, Sourav, Harshit and Anubhav <br>
 <br>
+
+# Presentation:
+<a href="https://www.sih.gov.in/uploads/template/AbstractHireandSeekSW20220329131341.pdf"> presentation_link </a>
+<br>
 <hr>
 
 # Description:
@@ -110,8 +114,14 @@ tinycss2==1.2
 <br>
 
 # Methodology: <br>
+<img src="https://raw.githubusercontent.com/RajAnubhav/HIRE-AND-SEEK/master/methodologyDiagram.png" alt="methodology">
+<br>
 
+# Flowchart: <br>
+<img src="https://raw.githubusercontent.com/RajAnubhav/HIRE-AND-SEEK/master/flowchartSIH.png" alt="flowchart">
+<br>
 
+# Preview of the Project: <br>
 <strong> Sign Up Screen </strong>
 <br>
 <p align="center" width="100%">
